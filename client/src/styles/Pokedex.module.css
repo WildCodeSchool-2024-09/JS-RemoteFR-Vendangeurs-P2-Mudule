@@ -3,7 +3,7 @@
   height: 100%;
   top: 0;
   bottom: 0;
-  background-color: var(--color-intern-prymary);
+  background-color: var(--color-intern-primary);
   overflow: hidden;
   position: relative;
 
@@ -86,17 +86,8 @@
   }
 }
 
-.calqueTEMPORAIRE {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    height: 70%;
-    width: 50%;
-    z-index: 30;
+@media screen and (min-width: 980px) {
+  .pokedex {
+    display: none;
   }
-  display: none;
 }

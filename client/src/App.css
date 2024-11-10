@@ -16,8 +16,9 @@ body {
   --color-extern-primary: #9e0922;
   --color-extern-secondary: #c30827;
   --color-extern-tertiary: #dc0a2d;
+  --color-extern-quaternary: #e9677d;
 
-  --color-intern-prymary: #c30827;
+  --color-intern-primary: #c30827;
   --color-intern-secondary: #dc0a2d;
 
   --color-frame-image: #dedede;

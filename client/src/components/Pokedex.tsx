@@ -8,9 +8,6 @@ import PokedexSwitchButtons from "./PokedexSwitchButton";
 export default function Pokedex() {
   return (
     <>
-      <div className={styles.calqueTEMPORAIRE}>
-        <img src="../src/assets/images/Pokedex-descktop-calque.png" alt="" />
-      </div>
       <div className={styles.pokedex}>
         <PokedexHeader />
         <div className={styles.borderIternTop}>

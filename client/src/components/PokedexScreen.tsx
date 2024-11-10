@@ -2,9 +2,9 @@ import styles from "../styles/PokedexScreen.module.css";
 
 export default function PokedexScreen() {
   return (
-    <section>
+    <section className={styles.desktop}>
       <div className={styles.pokedexScreen}>
-        <hr className={styles.diodeRed} />
+        <hr className={styles.diodeRed1} />
         <div className={styles.pokemonName}>
           <h2>Name</h2>
         </div>

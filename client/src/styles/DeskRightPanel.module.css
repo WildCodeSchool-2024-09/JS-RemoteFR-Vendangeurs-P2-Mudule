@@ -1,0 +1,65 @@
+@media screen and (min-width: 980px) {
+  .deskRightPanel {
+    background-color: var(--color-intern-secondary);
+    height: 83.5%;
+    width: 50%;
+    margin-bottom: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 46% 0, 65% 14%, 100% 14%, 100% 100%, 0 100%);
+
+    .deskRightPanelBorder {
+      background-color: var(--color-border);
+      height: 98%;
+      width: 98%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      clip-path: polygon(0 0, 45.5% 0, 65% 14.5%, 100% 14.5%, 100% 100%, 0 100%);
+
+      .pokedexIntern {
+        height: 99%;
+        width: 99%;
+        background-color: var(--color-intern-primary);
+        clip-path: polygon(
+          0 0,
+          45.15% 0,
+          65% 14.75%,
+          100% 14.75%,
+          100% 100%,
+          0 100%
+        );
+        overflow: hidden;
+
+        .reflectIntern1 {
+          position: absolute;
+          height: 41rem;
+          width: 2.5rem;
+          border: none;
+          rotate: 25deg;
+          background-color: var(--color-intern-secondary);
+          right: 20rem;
+          bottom: 3rem;
+        }
+
+        .reflectIntern2 {
+          position: absolute;
+          height: 42rem;
+          width: 2.5rem;
+          border: none;
+          rotate: 25deg;
+          background-color: var(--color-intern-secondary);
+          right: 47rem;
+          bottom: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .deskRightPanel {
+    display: none;
+  }
+}

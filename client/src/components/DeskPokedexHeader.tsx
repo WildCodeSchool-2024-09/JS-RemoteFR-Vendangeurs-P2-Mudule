@@ -1,6 +1,6 @@
-import styles from "../styles/PokedexHeader.module.css";
+import styles from "../styles/DeskPokedexHeader.module.css";
 
-export default function PokedexHeader() {
+export default function DeskPokedexHeader() {
   return (
     <section className={styles.pokedexBorder}>
       <div className={styles.pokedexHeader}>
@@ -20,7 +20,6 @@ export default function PokedexHeader() {
             <hr />
           </div>
         </div>
-        <h1>Pokédule</h1>
         <hr className={styles.reflect1} />
         <hr className={styles.reflect2} />
       </div>

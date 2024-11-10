@@ -228,7 +228,7 @@
         left: 11.5rem;
 
         .diodeRed {
-          border: solid 1px var(--color-border);
+          border: solid 2px var(--color-border);
           height: 15px;
           width: 15px;
 
@@ -238,7 +238,7 @@
         }
 
         .diodeYellow {
-          border: solid 1px var(--color-border);
+          border: solid 2px var(--color-border);
           height: 15px;
           width: 15px;
 
@@ -248,7 +248,7 @@
         }
 
         .diodeGreen {
-          border: solid 1px var(--color-border);
+          border: solid 2px var(--color-border);
           height: 15px;
           width: 15px;
 
@@ -281,5 +281,11 @@
         left: 12.75rem;
       }
     }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .pokedexHeader {
+    display: none;
   }
 }
