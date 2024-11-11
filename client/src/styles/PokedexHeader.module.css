@@ -15,7 +15,7 @@
 
   overflow: hidden;
 
-  span {
+  .menuDiodeContainer {
     height: 4.2rem;
     width: 4.2rem;
     border-radius: 50%;
@@ -26,31 +26,39 @@
     overflow: hidden;
     animation: menu 4s ease-in-out infinite;
 
-    .menuDiode1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .menuDiodeReflect {
+      height: 92%;
+      width: 92%;
       border-radius: 50%;
-      border: none;
       background-color: var(--color-menu-primary);
-      height: 60px;
-      width: 60px;
-      margin: 3px 0 0 1px;
-    }
 
-    .menuDiode2 {
-      position: absolute;
-      border-radius: 50%;
-      top: 1rem;
-      left: 2.5rem;
-      background-color: var(--color-menu-tertiary);
-      border: solid 12px var(--color-menu-secondary);
-      padding: 8px 0 0 8px;
-      margin: 0.3rem 0;
-      @media screen and (max-width: 700px) {
-        animation: diode 4s ease-in-out infinite;
-      }
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
 
-      @media screen and (max-width: 700px) {
-        .menuDiode3 {
-          display: none;
+      span {
+        height: 60%;
+        width: 60%;
+        background-color: var(--color-menu-secondary);
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 0.5rem 0 0 0.5rem;
+
+        hr {
+          border: none;
+          height: 8px;
+          width: 8px;
+          background-color: var(--color-menu-quaternary);
+          border-radius: 50%;
+          animation: diode 4s ease-in-out infinite;
         }
       }
     }
@@ -166,120 +174,5 @@
 @keyframes diode {
   50% {
     background-color: rgb(126, 200, 223);
-  }
-}
-
-@media screen and (min-width: 980px) {
-  .pokedexBorder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-border);
-    border-radius: 12px 12px 0 0;
-    height: 15.45vh;
-    clip-path: polygon(0 0, 100% 0, 100% 57%, 65% 57%, 45% 100%, 0 100%);
-
-    .pokedexHeader {
-      width: 99%;
-      height: 99%;
-      border: none;
-      border-radius: 10px 10px 0 0;
-      clip-path: polygon(0 0, 100% 0, 100% 54.5%, 65% 54.5%, 45% 97.5%, 0 97.5%);
-
-      span {
-        height: 5.5rem;
-        width: 5.5rem;
-        margin: 0 0 0 0.75rem;
-        border: solid 5px var(--color-menu-quaternary);
-
-        .menuDiode1 {
-          height: 75px;
-          width: 75px;
-          margin: 3px 0 0 3px;
-        }
-
-        .menuDiode2 {
-          background-color: var(--color-menu-secondary);
-          width: 2.5rem;
-          height: 2.5rem;
-          top: 2.5rem;
-          left: 2.5rem;
-          margin: 0 0 0 0.75rem;
-        }
-
-        .menuDiode3 {
-          position: absolute;
-          border-radius: 50%;
-          border: none;
-          top: 3.65rem;
-          left: 3.75rem;
-          margin: 0 0 0 0.75rem;
-          background-color: var(--color-menu-tertiary);
-          padding: 8px 0 0 8px;
-          animation: diode 4s ease-in-out infinite;
-        }
-      }
-
-      .diodeContainer {
-        gap: 1.2rem;
-        z-index: 5;
-
-        top: 1.2rem;
-        left: 11.5rem;
-
-        .diodeRed {
-          border: solid 1px var(--color-border);
-          height: 15px;
-          width: 15px;
-
-          hr {
-            border: solid 3px var(--diode-red-secondary);
-          }
-        }
-
-        .diodeYellow {
-          border: solid 1px var(--color-border);
-          height: 15px;
-          width: 15px;
-
-          hr {
-            border: solid 3px var(--diode-yellow-secondary);
-          }
-        }
-
-        .diodeGreen {
-          border: solid 1px var(--color-border);
-          height: 15px;
-          width: 15px;
-
-          hr {
-            border: solid 3px var(--diode-green-secondary);
-          }
-        }
-      }
-
-      h1 {
-        display: none;
-      }
-
-      .reflect1 {
-        height: 12rem;
-        width: 2rem;
-        background-color: var(--color-extern-secondary);
-        rotate: 25deg;
-
-        border: none;
-
-        position: absolute;
-        left: 11.25rem;
-      }
-
-      .reflect2 {
-        height: 12rem;
-        width: 2.5rem;
-
-        left: 12.75rem;
-      }
-    }
   }
 }

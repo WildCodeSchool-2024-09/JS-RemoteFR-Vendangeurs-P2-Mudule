@@ -4,7 +4,7 @@ export default function PokedexSearchBar() {
   return (
     <nav className={styles.pokedexSearchBar}>
       <fieldset>
-        <input type="text" />
+        <input type="text" placeholder="Trouvez votre Pokemon . . ." />
       </fieldset>
     </nav>
   );

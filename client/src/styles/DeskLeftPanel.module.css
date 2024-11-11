@@ -30,10 +30,10 @@
       justify-content: center;
       align-items: center;
       clip-path: polygon(
-        0 22%,
-        49% 22%,
-        71% 12.5%,
-        100% 12.5%,
+        0 19.5%,
+        49% 19.5%,
+        71% 11%,
+        100% 11%,
         100% 100%,
         0 100%
       );
@@ -45,22 +45,22 @@
         border-radius: 0 0 0 8px;
         overflow: hidden;
         clip-path: polygon(
-          0 22.25%,
-          49.25% 22.25%,
-          71.5% 12.65%,
-          99.9% 12.65%,
+          0 19.6%,
+          49.25% 19.6%,
+          71.5% 11.05%,
+          99.90% 11.05%,
           99.9% 100%,
           0 100%
         );
 
         .reflectIntern1 {
           position: absolute;
-          height: 41rem;
+          height: 46rem;
           width: 2.5rem;
           border: none;
           rotate: 25deg;
           background-color: var(--color-intern-secondary);
-          left: 33rem;
+          left: 36rem;
           bottom: 3em;
         }
 

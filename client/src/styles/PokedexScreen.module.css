@@ -53,6 +53,8 @@
     width: 60px;
     border-radius: 50px;
     margin: auto;
+    box-shadow: rgba(45, 192, 0, 0.25) 0px 30px 60px -12px inset,
+      rgba(29, 134, 38, 0.3) 0px 18px 36px -18px inset;
   }
 
   input[type="checkbox"]::after {
@@ -68,8 +70,8 @@
   }
 
   input[type="checkbox"]:checked {
-    box-shadow: rgba(45, 192, 0, 0.25) 0px 30px 60px -12px inset,
-      rgba(29, 134, 38, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(104, 104, 104, 0.25) 0px 30px 60px -12px inset,
+      rgba(77, 77, 77, 0.3) 0px 18px 36px -18px inset;
   }
 
   input[type="checkbox"]:checked::after {

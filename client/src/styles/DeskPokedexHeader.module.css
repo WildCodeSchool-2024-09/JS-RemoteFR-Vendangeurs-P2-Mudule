@@ -15,7 +15,7 @@
 
   overflow: hidden;
 
-  span {
+  .menuDiodeContainer {
     height: 4.2rem;
     width: 4.2rem;
     border-radius: 50%;
@@ -26,38 +26,43 @@
     overflow: hidden;
     animation: menu 4s ease-in-out infinite;
 
-    .menuDiode1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .menuDiodeReflect {
+      height: 92%;
+      width: 92%;
       border-radius: 50%;
-      border: none;
       background-color: var(--color-menu-primary);
-      height: 60px;
-      width: 60px;
-      margin: 3px 0 0 1px;
-    }
 
-    .menuDiode2 {
-      position: absolute;
-      border-radius: 50%;
-      top: 1rem;
-      left: 2.5rem;
-      background-color: var(--color-menu-tertiary);
-      border: solid 12px var(--color-menu-secondary);
-      padding: 8px 0 0 8px;
-      margin: 0.3rem 0;
-      @media screen and (max-width: 700px) {
-        animation: diode 4s ease-in-out infinite;
-      }
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
 
-      @media screen and (max-width: 700px) {
-        .menuDiode3 {
-          display: none;
+      span {
+        height: 60%;
+        width: 60%;
+        background-color: var(--color-menu-secondary);
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0.15rem 0 0 0.15rem;
+        padding: 0.5rem 0 0 0.5rem;
+
+        hr {
+          border: none;
+          height: 8px;
+          width: 8px;
+          background-color: var(--color-menu-quaternary);
+          border-radius: 50%;
+          animation: diode 4s ease-in-out infinite;
         }
       }
     }
-  }
-
-  h1 {
-    margin-bottom: 0;
   }
 
   .diodeContainer {
@@ -70,66 +75,6 @@
     position: absolute;
     top: 0.75rem;
     left: 8.1rem;
-
-    .diodeRed {
-      border: solid 1px var(--color-border);
-      border-radius: 50%;
-      height: 10px;
-      width: 10px;
-      background-color: var(--diode-red-primary);
-
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      hr {
-        border: solid 2px var(--diode-red-secondary);
-        border-radius: 50%;
-        height: 6px;
-        width: 6px;
-        background-color: var(--diode-red-tertiary);
-      }
-    }
-
-    .diodeYellow {
-      border: solid 1px var(--color-border);
-      border-radius: 50%;
-      height: 10px;
-      width: 10px;
-      background-color: var(--diode-yellow-primary);
-
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      hr {
-        border: solid 2px var(--diode-yellow-secondary);
-        border-radius: 50%;
-        height: 6px;
-        width: 6px;
-        background-color: var(--diode-red-tertiary);
-      }
-    }
-
-    .diodeGreen {
-      border: solid 1px var(--color-border);
-      border-radius: 50%;
-      height: 10px;
-      width: 10px;
-      background-color: var(--diode-green-primary);
-
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      hr {
-        border: solid 2px var(--diode-green-secondary);
-        border-radius: 50%;
-        height: 6px;
-        width: 6px;
-        background-color: var(--diode-red-tertiary);
-      }
-    }
   }
 
   .reflect1 {
@@ -157,18 +102,6 @@
   }
 }
 
-@keyframes menu {
-  50% {
-    box-shadow: 0px 0px 40px 10px #e7e7e783, 0px 0px 60px 15px #008be183;
-  }
-}
-
-@keyframes diode {
-  50% {
-    background-color: rgb(126, 200, 223);
-  }
-}
-
 @media screen and (min-width: 980px) {
   .pokedexBorder {
     display: flex;
@@ -177,46 +110,38 @@
     background-color: var(--color-border);
     border-radius: 12px 12px 0 0;
     height: 15.45vh;
-    clip-path: polygon(0 0, 100% 0, 100% 57%, 65% 57%, 45% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 58%, 65.5% 58%, 45.5% 100%, 0 100%);
 
     .pokedexHeader {
       width: 99%;
       height: 99%;
       border: none;
       border-radius: 10px 10px 0 0;
-      clip-path: polygon(0 0, 100% 0, 100% 54.5%, 65% 54.5%, 45% 97.5%, 0 97.5%);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 56%,
+        65.5% 56%,
+        45.25% 98.5%,
+        0 98.5%
+      );
 
-      span {
+      .menuDiodeContainer {
         height: 5.5rem;
         width: 5.5rem;
         margin: 0 0 0 0.75rem;
         border: solid 5px var(--color-menu-quaternary);
-
-        .menuDiode1 {
-          height: 75px;
-          width: 75px;
-          margin: 3px 0 0 3px;
+        transition: transform 1s ease-in-out;
+        cursor: pointer;
+        .menuDiodeReflect {
+          transition: transform 0.5s ease-in-out;
         }
+      }
 
-        .menuDiode2 {
-          background-color: var(--color-menu-secondary);
-          width: 2.5rem;
-          height: 2.5rem;
-          top: 2.5rem;
-          left: 2.5rem;
-          margin: 0 0 0 0.75rem;
-        }
-
-        .menuDiode3 {
-          position: absolute;
-          border-radius: 50%;
-          border: none;
-          top: 3.65rem;
-          left: 3.75rem;
-          margin: 0 0 0 0.75rem;
-          background-color: var(--color-menu-tertiary);
-          padding: 8px 0 0 8px;
-          animation: diode 4s ease-in-out infinite;
+      .menuDiodeContainer:hover {
+        transform: rotate(-90deg);
+        .menuDiodeReflect {
+          transform: rotate(-135deg);
         }
       }
 
@@ -229,31 +154,55 @@
 
         .diodeRed {
           border: solid 2px var(--color-border);
-          height: 15px;
-          width: 15px;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background-color: var(--diode-red-primary);
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           hr {
             border: solid 3px var(--diode-red-secondary);
+            border-radius: 50%;
+            animation: diodeRed 15s infinite;
           }
         }
 
         .diodeYellow {
           border: solid 2px var(--color-border);
-          height: 15px;
-          width: 15px;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background-color: var(--diode-yellow-primary);
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           hr {
             border: solid 3px var(--diode-yellow-secondary);
+            border-radius: 50%;
+            animation: diodeYellow 10s infinite;
           }
         }
 
         .diodeGreen {
           border: solid 2px var(--color-border);
-          height: 15px;
-          width: 15px;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background-color: var(--diode-green-primary);
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           hr {
             border: solid 3px var(--diode-green-secondary);
+            border-radius: 50%;
+            animation: diodeGreen 20s infinite;
           }
         }
       }
@@ -287,5 +236,116 @@
 @media screen and (max-width: 980px) {
   .pokedexHeader {
     display: none;
+  }
+}
+
+@keyframes menu {
+  50% {
+    box-shadow: 0px 0px 40px 10px #e7e7e783, 0px 0px 60px 15px #008be183;
+  }
+}
+
+@keyframes diode {
+  50% {
+    background-color: rgb(126, 200, 223);
+  }
+}
+
+@keyframes diodeRed {
+  19% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+  20% {
+    border: solid 3px var(--diode-red-tertiary);
+  }
+  21% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+  25% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+  26% {
+    border: solid 3px var(--diode-red-tertiary);
+  }
+  27% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+  79% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+  80% {
+    border: solid 3px var(--diode-red-tertiary);
+  }
+  81% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+  100% {
+    border: solid 3px var(--diode-red-secondary);
+  }
+}
+
+@keyframes diodeYellow {
+  19% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+  20% {
+    border: solid 3px var(--diode-yellow-tertiary);
+  }
+  21% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+  25% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+  26% {
+    border: solid 3px var(--diode-yellow-tertiary);
+  }
+  27% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+  79% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+  80% {
+    border: solid 3px var(--diode-yellow-tertiary);
+  }
+  81% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+  100% {
+    border: solid 3px var(--diode-yellow-secondary);
+  }
+}
+
+@keyframes diodeGreen {
+  19% {
+    border: solid 3px var(--diode-green-secondary);
+  }
+  20% {
+    border: solid 3px var(--diode-green-tertiary);
+  }
+  21% {
+    border: solid 3px var(--diode-green-secondary);
+  }
+  25% {
+    border: solid 3px var(--diode-green-secondary);
+  }
+  26% {
+    border: solid 3px var(--diode-green-tertiary);
+  }
+  27% {
+    border: solid 3px var(--diode-green-secondary);
+  }
+  79% {
+    border: solid 3px var(--diode-green-secondary);
+  }
+  80% {
+    border: solid 3px var(--diode-green-tertiary);
+  }
+  81% {
+    border: solid 3px var(--diode-green-secondary);
+  }
+  100% {
+    border: solid 3px var(--diode-green-secondary);
   }
 }

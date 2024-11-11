@@ -12,6 +12,7 @@ body {
 :root {
   --font-color-primary: whitesmoke;
   --font-color-secondary: #193c1e;
+  --font-color-tertiary: #193c1e7a;
 
   --color-extern-primary: #9e0922;
   --color-extern-secondary: #c30827;
@@ -28,7 +29,7 @@ body {
 
   --color-button-primary: #001c18;
   --color-button-secondary: #00312b;
-  --color-button-tertiary: #004f45;
+  --color-button-tertiary: #005e52;
 
   --color-arrow: #a1a1a1;
 
@@ -56,10 +57,10 @@ body {
   --diode-red-tertiary: #fff8c7;
 
   --diode-yellow-primary: #9f8b0f;
-  --diode-yellow-secondary: #fde11e;
-  --diode-yellow-tertiary: #fff8c7;
+  --diode-yellow-secondary: #dbc00c;
+  --diode-yellow-tertiary: #dfdfdf;
 
   --diode-green-primary: #0f9f19;
-  --diode-green-secondary: #1efd47;
-  --diode-green-tertiary: #fff8c7;
+  --diode-green-secondary: #06c529;
+  --diode-green-tertiary: #f3f3f3;
 }

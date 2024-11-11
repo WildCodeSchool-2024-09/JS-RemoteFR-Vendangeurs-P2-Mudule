@@ -4,10 +4,12 @@ export default function DeskPokedexHeader() {
   return (
     <section className={styles.pokedexBorder}>
       <div className={styles.pokedexHeader}>
-        <span>
-          <hr className={styles.menuDiode1} />
-          <hr className={styles.menuDiode2} />
-          <hr className={styles.menuDiode3} />
+        <span className={styles.menuDiodeContainer}>
+          <span className={styles.menuDiodeReflect}>
+            <span>
+              <hr />
+            </span>
+          </span>
         </span>
         <div className={styles.diodeContainer}>
           <div className={styles.diodeRed}>

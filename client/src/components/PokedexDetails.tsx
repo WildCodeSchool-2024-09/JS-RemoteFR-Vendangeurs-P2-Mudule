@@ -4,12 +4,12 @@ export default function PokedexDetails() {
   return (
     <>
       <section className={styles.pokedexDetails}>
-        <textarea name="" id="">
+        <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
           ipsa hic reprehenderit in vitae voluptatibus illum optio a. Quas
           eligendi iusto expedita nihil animi aliquam amet suscipit commodi
           dolorum.
-        </textarea>
+        </p>
         <div>
           <h3>N°152</h3>
         </div>
