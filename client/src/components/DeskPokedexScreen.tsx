@@ -1,6 +1,21 @@
 import styles from "../styles/DeskPokedexScreen.module.css";
 
-export default function DeskPokedexScreen() {
+interface PokemonScreen {
+  pokemon: {
+    name: {
+      fr: string;
+    };
+    sprites: {
+      regular: string;
+    };
+  } | null;
+}
+
+export default function DeskPokedexScreen({ pokemon }: PokemonScreen) {
+  if (!pokemon) {
+    return <p>Chargement...</p>;
+  }
+
   return (
     <section className={styles.desktop}>
       <div className={styles.pokedexScreenBorder}>
@@ -8,10 +23,10 @@ export default function DeskPokedexScreen() {
           <hr className={styles.diodeRed1} />
           <hr className={styles.diodeRed2} />
           <div className={styles.pokemonName}>
-            <h2>Name</h2>
+            <h2>{pokemon.name.fr}</h2>
           </div>
           <figure className={styles.screen}>
-            <img src="" alt="IMAGE-POKEMON" />
+            <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
           </figure>
           <div className={styles.diodeDesk}>
             <hr className={styles.diodeDeskLight} />

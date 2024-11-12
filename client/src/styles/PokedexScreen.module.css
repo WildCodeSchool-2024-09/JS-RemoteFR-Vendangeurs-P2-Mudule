@@ -83,6 +83,12 @@
     margin: 0;
     background-color: var(--color-frame-screen);
     border: solid 3px var(--color-border);
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      margin: auto;
+    }
   }
 
   .type1 {
