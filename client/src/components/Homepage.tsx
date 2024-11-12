@@ -1,4 +1,7 @@
 import type React from "react";
+import imgPokeball from "../assets/images/Pokeball.png";
+import imgDesktopClose from "../assets/images/desktopclose.png";
+import imgMobileClose from "../assets/images/mobileclose.png";
 import styles from "../styles/Homepage.module.css";
 
 interface HomepageProps {
@@ -7,7 +10,7 @@ interface HomepageProps {
 
 const Homepage: React.FC<HomepageProps> = ({ onPokeballClick }) => {
   const handleKeyUp = (event: React.KeyboardEvent<HTMLImageElement>) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       onPokeballClick();
     }
   };
@@ -16,21 +19,20 @@ const Homepage: React.FC<HomepageProps> = ({ onPokeballClick }) => {
     <div className={styles.homepage}>
       <img
         className={styles.pokeball}
-        src="../src/assets/images/Pokeball.png"
+        src={imgPokeball}
         alt="PokeBall"
         onClick={onPokeballClick}
         onKeyUp={handleKeyUp}
-        tabIndex={0} 
       />
 
       <img
         className={styles.desktopclose}
-        src="../src/assets/images/desktopclose.png"
+        src={imgDesktopClose}
         alt="Pokedex fermé"
       />
       <img
         className={styles.mobileclose}
-        src="../src/assets/images/mobileclose.png"
+        src={imgMobileClose}
         alt="Pokedex fermé"
       />
     </div>
