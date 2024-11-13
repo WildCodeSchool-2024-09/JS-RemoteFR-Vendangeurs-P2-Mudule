@@ -1,6 +1,25 @@
 import styles from "../styles/DeskControlPanel.module.css";
 
-export default function DeskControlPanel() {
+interface DeskControlPanelProps {
+  onIncrement: () => void;
+  onDecrement: () => void;
+  pokedex_id: number | null;
+}
+
+export default function DeskControlPanel({
+  pokedex_id,
+  onDecrement,
+  onIncrement,
+}: DeskControlPanelProps) {
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLSpanElement>,
+    action: () => void,
+  ) => {
+    if (event.key === "Enter" || event.key === " ") {
+      action();
+    }
+  };
+
   return (
     <section className={styles.deskControlPanel}>
       <div className={styles.panelContainer}>
@@ -10,7 +29,7 @@ export default function DeskControlPanel() {
           </span>
         </span>
         <div className={styles.displayNumber}>
-          <h3>N°152</h3>
+          <h3>N°{pokedex_id}</h3>
         </div>
         <div className={styles.controlContainer}>
           <div className={styles.control}>
@@ -20,7 +39,11 @@ export default function DeskControlPanel() {
                   <hr />
                 </span>
               </span>
-              <span className={styles.controlRight}>
+              <span
+                onClick={onIncrement}
+                className={styles.controlRight}
+                onKeyDown={(event) => handleKeyDown(event, onIncrement)}
+              >
                 <span className={styles.controlRightShadow}>
                   <hr />
                 </span>
@@ -30,7 +53,11 @@ export default function DeskControlPanel() {
                   <hr />
                 </span>
               </span>
-              <span className={styles.controlLeft}>
+              <span
+                onClick={onDecrement}
+                className={styles.controlLeft}
+                onKeyDown={(event) => handleKeyDown(event, onIncrement)}
+              >
                 <span className={styles.controlLeftShadow}>
                   <hr />
                 </span>

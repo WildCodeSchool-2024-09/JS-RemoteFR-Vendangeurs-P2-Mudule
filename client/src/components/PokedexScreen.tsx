@@ -1,16 +1,31 @@
 import styles from "../styles/PokedexScreen.module.css";
 
-export default function PokedexScreen() {
+interface PokemonScreen {
+  pokemon: {
+    name: {
+      fr: string;
+    };
+    sprites: {
+      regular: string;
+    };
+  } | null;
+}
+
+export default function PokedexScreen({ pokemon }: PokemonScreen) {
+  if (!pokemon) {
+    return <p>Chargement...</p>;
+  }
+
   return (
     <section className={styles.desktop}>
       <div className={styles.pokedexScreen}>
         <hr className={styles.diodeRed1} />
         <div className={styles.pokemonName}>
-          <h2>Name</h2>
+          <h2>{pokemon.name.fr}</h2>
         </div>
         <input type="checkbox" name="TOGGLE-SWITCH-ON-OFF" id="" />
         <figure className={styles.screen}>
-          <img src="" alt="IMAGE-POKEMON" />
+          <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
         </figure>
         <figure className={styles.type1}>
           <img src="" alt="" />

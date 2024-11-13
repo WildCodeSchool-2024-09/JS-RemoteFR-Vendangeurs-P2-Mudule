@@ -1,13 +1,42 @@
 import styles from "../styles/PokedexSwitchButton.module.css";
 
-export default function PokedexSwitchButtons() {
+interface SwitchButtonsProps {
+  onIncrement: () => void;
+  onDecrement: () => void;
+}
+
+export default function PokedexSwitchButtons({
+  onIncrement,
+  onDecrement,
+}: SwitchButtonsProps) {
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLSpanElement>,
+    action: () => void,
+  ) => {
+    if (event.key === "Enter" || event.key === " ") {
+      action();
+    }
+  };
+
   return (
     <>
       <button type="button" className={styles.leftButton}>
-        <span className="material-symbols-outlined">arrow_right</span>
+        <span
+          onClick={onDecrement}
+          className="material-symbols-outlined"
+          onKeyDown={(event) => handleKeyDown(event, onDecrement)}
+        >
+          arrow_right
+        </span>
       </button>
       <button type="button" className={styles.rightButton}>
-        <span className="material-symbols-outlined">arrow_right</span>
+        <span
+          onClick={onIncrement}
+          className="material-symbols-outlined"
+          onKeyDown={(event) => handleKeyDown(event, onIncrement)}
+        >
+          arrow_right
+        </span>
       </button>
     </>
   );

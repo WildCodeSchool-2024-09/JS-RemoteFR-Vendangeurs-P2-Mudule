@@ -48,7 +48,7 @@
           align-items: center;
           flex-direction: column;
 
-          p {
+          .billboard {
             background-color: var(--color-areatext);
             border: solid 3px var(--color-border);
             color: var(--font-color-primary);
@@ -59,20 +59,28 @@
             margin: 0 0 1rem 0;
             cursor: default;
             overflow: scroll;
+
+            h3 {
+              margin: 0 0 1rem 0.75rem;
+            }
+
+            p {
+              margin: 0.75rem;
+            }
           }
         }
 
-        p::-webkit-scrollbar {
+        .billboard::-webkit-scrollbar {
           background-color: rgba(0, 0, 0, 0.37);
           width: 6px;
           height: 0px;
         }
 
-        p::-webkit-scrollbar-track {
+        .billboard::-webkit-scrollbar-track {
           background-color: rgba(0, 0, 0, 0);
         }
 
-        p::-webkit-scrollbar-thumb {
+        .billboard::-webkit-scrollbar-thumb {
           background-color: rgb(131, 131, 131);
           border-radius: 20px;
           border: 3px solid rgb(129, 129, 129);
