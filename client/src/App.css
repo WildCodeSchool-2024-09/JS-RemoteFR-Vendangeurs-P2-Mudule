@@ -5,13 +5,13 @@
 
 body {
   margin: 0;
-  padding: 0;
   background-color: var(--color-frame-screen);
 }
 
 :root {
   --font-color-primary: whitesmoke;
   --font-color-secondary: #193c1e;
+
   --font-color-tertiary: #193c1e7a;
 
   --color-extern-primary: #9e0922;
@@ -63,4 +63,108 @@ body {
   --diode-green-primary: #0f9f19;
   --diode-green-secondary: #06c529;
   --diode-green-tertiary: #f3f3f3;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+    background: radial-gradient(
+      circle,
+      white 0%,
+      white 20%,
+      #9e0922 40%,
+      #9e0922 50%,
+      #9e0922 60%,
+      #9e0922 70%,
+      #9e0922 80%,
+      #9e0922 90%,
+      #9e0922 100%
+    );
+  }
+  100% {
+    opacity: 1;
+    transform: scale(10);
+    background: radial-gradient(
+      circle,
+      white 0%,
+      white 20%,
+      #9e0922 40%,
+      #9e0922 50%,
+      #9e0922 60%,
+      #9e0922 70%,
+      #9e0922 80%,
+      #9e0922 90%,
+      #9e0922 100%
+    );
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+    transform: scale(10);
+    background: radial-gradient(
+      circle,
+      white 0%,
+      white 20%,
+      #9e092200 40%,
+      #9e092200 50%,
+      #9e092200 60%,
+      #9e092200 70%,
+      #9e092200 80%,
+      #9e092200 90%,
+      #9e092200 100%
+    );
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0);
+    background: radial-gradient(
+      circle,
+      white 0%,
+      white 20%,
+      #9e092200 40%,
+      #9e092200 50%,
+      #9e092200 60%,
+      #9e092200 70%,
+      #9e092200 80%,
+      #9e092200 90%,
+      #9e092200 100%
+    );
+  }
+}
+
+.fade-out {
+  position: fixed;
+  top: 2%;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 50%;
+  animation: fadeOut 2.5s forwards;
+  z-index: 3;
+}
+
+.fade-in {
+  position: fixed;
+  top: 2%;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 50%;
+  animation: fadeIn 1.5s forwards;
+  z-index: 3;
+}
+
+.fade-in-content {
+  opacity: 0;
+  animation: fadeInContent 2s forwards;
+}
+
+@keyframes fadeInContent {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
