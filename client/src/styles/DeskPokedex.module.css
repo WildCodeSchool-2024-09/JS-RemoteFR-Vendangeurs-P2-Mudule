@@ -1,0 +1,20 @@
+@media screen and (min-width: 980px) {
+  .deskPokedex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 84vh;
+    width: 100vw;
+    background-color: rgb(78, 78, 78);
+
+    margin-top: 8vh;
+
+    .pokedexContainer {
+      height: 95%;
+      width: 70rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+}

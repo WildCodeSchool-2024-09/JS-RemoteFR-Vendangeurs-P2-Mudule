@@ -2,6 +2,8 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import Homepage from "./components/Homepage";
 import "./App.css";
+import DeskPokedex from "./components/DeskPokedex";
+import Pokedex from "./components/Pokedex";
 
 const App: React.FC = () => {
   const [showHomepage, setShowHomepage] = useState(true);
@@ -27,22 +29,24 @@ const App: React.FC = () => {
   }, [showFadeIn]);
 
   return (
-    <div>
-      {showHomepage ? (
-        <>
-          <Homepage onPokeballClick={handlePokeballClick} />
-          {showFadeOut && <div className="fade-out" />}
-        </>
-      ) : (
-        <>
-          {showFadeIn && <div className="fade-in" />}
-          <div className={showFadeIn ? "fade-in-content" : ""}>
-            <h1>Bienvenue dans l'application principale</h1>
-            <p>Ceci est l'application principale.</p>
-          </div>
-        </>
-      )}
-    </div>
+    <>
+      <div>
+        {showHomepage ? (
+          <>
+            <Homepage onPokeballClick={handlePokeballClick} />
+            {showFadeOut && <div className="fade-out" />}
+          </>
+        ) : (
+          <>
+            {showFadeIn && <div className="fade-in" />}
+            <div className={showFadeIn ? "fade-in-content" : ""}>
+              <DeskPokedex />
+              <Pokedex />
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 };
 
