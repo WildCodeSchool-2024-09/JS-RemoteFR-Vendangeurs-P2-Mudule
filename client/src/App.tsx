@@ -30,22 +30,22 @@ const App: React.FC = () => {
 
   return (
     <>
-    <div>
-      {showHomepage ? (
-        <>
-          <Homepage onPokeballClick={handlePokeballClick} />
-          {showFadeOut && <div className="fade-out" />}
-        </>
-      ) : (
-        <>
-          {showFadeIn && <div className="fade-in" />}
-          <div className={showFadeIn ? "fade-in-content" : ""}>
-            <DeskPokedex />
-            <Pokedex />
-          </div>
-      </>
-      )}
-    </div>
+      <div>
+        {showHomepage ? (
+          <>
+            <Homepage onPokeballClick={handlePokeballClick} />
+            {showFadeOut && <div className="fade-out" />}
+          </>
+        ) : (
+          <>
+            {showFadeIn && <div className="fade-in" />}
+            <div className={showFadeIn ? "fade-in-content" : ""}>
+              <DeskPokedex />
+              <Pokedex />
+            </div>
+          </>
+        )}
+      </div>
     </>
   );
 };
