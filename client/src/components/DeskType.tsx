@@ -8,6 +8,81 @@ export default function DeskType() {
           <img src="#" alt="#" />
         </span>
       </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
+      <div className={styles.displayType}>
+        <span>
+          <img src="#" alt="#" />
+        </span>
+      </div>
     </section>
   );
 }
