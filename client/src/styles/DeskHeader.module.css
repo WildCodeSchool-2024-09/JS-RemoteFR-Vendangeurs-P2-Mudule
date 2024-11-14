@@ -1,0 +1,281 @@
+.header {
+  height: 8vh;
+  position: relative;
+  overflow: hidden;
+
+  .Ho_oh {
+    height: 70px;
+    position: absolute;
+    right: 20%;
+    animation: Ho_oh 1.5s infinite linear;
+    z-index: 6;
+  }
+
+  .cloudOne {
+    height: 50px;
+    position: absolute;
+    animation: cloudS 15s infinite linear;
+  }
+
+  .cloudTwo {
+    height: 50px;
+    top: 1.5rem;
+    position: absolute;
+    animation: cloudTwo 15s infinite;
+  }
+
+  .cloudThree {
+    height: 50px;
+    top: 1rem;
+    left: -10%;
+    position: absolute;
+    animation: cloud 35s infinite;
+  }
+
+  .cloudFour {
+    height: 50px;
+    position: absolute;
+    animation: cloud 20s infinite;
+  }
+
+  .cloudFive {
+    height: 50px;
+    position: absolute;
+    animation: cloudTwo 30s infinite;
+  }
+
+  .sky {
+    animation: sky 150s infinite linear;
+    position: absolute;
+    width: 200rem;
+    height: 200rem;
+    top: -800%;
+    left: -40%;
+    transform: translate(0%, 0%);
+    background: linear-gradient(
+      #00cafd,
+      #00c2fd,
+      #00c2fd,
+      #00c2fd,
+      #00c2fd,
+      #e49c00,
+      #e47a00,
+      #005eda,
+      #08007c,
+      #060230,
+      #000000,
+      #000000
+    );
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .header {
+    display: none;
+  }
+}
+
+@keyframes sky {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes Ho_oh {
+  50% {
+    top: 15%;
+  }
+}
+
+@keyframes cloudS {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes cloud {
+  0% {
+    display: none;
+  }
+  9.99% {
+    left: 10%;
+    display: none;
+  }
+  10% {
+    left: 10%;
+    display: block;
+  }
+  19.99% {
+    left: 10%;
+    display: none;
+  }
+  20% {
+    left: 20%;
+    display: block;
+  }
+  29.99% {
+    left: 20%;
+    display: none;
+  }
+  30% {
+    left: 30%;
+    display: block;
+  }
+  39.99% {
+    left: 30%;
+    display: none;
+  }
+  40% {
+    left: 40%;
+    display: block;
+  }
+  49.99% {
+    left: 40%;
+    display: none;
+  }
+  50% {
+    left: 50%;
+    display: block;
+  }
+  59.99% {
+    left: 50%;
+    display: none;
+  }
+  60% {
+    left: 60%;
+    display: block;
+  }
+  69.99% {
+    left: 60%;
+    display: none;
+  }
+  70% {
+    left: 70%;
+    display: block;
+  }
+  79.99% {
+    left: 70%;
+    display: none;
+  }
+  80% {
+    left: 80%;
+    display: block;
+  }
+  89.99% {
+    left: 80%;
+    display: none;
+  }
+  90% {
+    left: 90%;
+    display: block;
+  }
+  99.99% {
+    left: 90%;
+    display: none;
+  }
+  100% {
+    left: 100%;
+    display: block;
+  }
+  105% {
+    left: 100%;
+    display: none;
+  }
+}
+
+@keyframes cloudTwo {
+  9.99% {
+    left: 0%;
+    display: none;
+  }
+  10% {
+    left: 0%;
+    display: block;
+  }
+  19.99% {
+    left: 0%;
+    display: none;
+  }
+  20% {
+    left: 10%;
+    display: block;
+  }
+  29.99% {
+    left: 10%;
+    display: none;
+  }
+  30% {
+    left: 20%;
+    display: block;
+  }
+  39.99% {
+    left: 20%;
+    display: none;
+  }
+  40% {
+    left: 30%;
+    display: block;
+  }
+  49.99% {
+    left: 30%;
+    display: none;
+  }
+  50% {
+    left: 40%;
+    display: block;
+  }
+  59.99% {
+    left: 40%;
+    display: none;
+  }
+  60% {
+    left: 50%;
+    display: block;
+  }
+  69.99% {
+    left: 50%;
+    display: none;
+  }
+  70% {
+    left: 60%;
+    display: block;
+  }
+  79.99% {
+    left: 60%;
+    display: none;
+  }
+  80% {
+    left: 70%;
+    display: block;
+  }
+  89.99% {
+    left: 70%;
+    display: none;
+  }
+  90% {
+    left: 80%;
+    display: block;
+  }
+  99.99% {
+    left: 80%;
+    display: none;
+  }
+  100% {
+    left: 90%;
+    display: block;
+  }
+  105% {
+    left: 90%;
+    display: none;
+  }
+}
