@@ -1,7 +1,7 @@
 import styles from "../styles/DeskRightPanel.module.css";
 import DeskPokedexSearchBar from "./DeskPokedexSearchBar";
 import DeskSound from "./DeskSound";
-import DeskType from "./DeskType";
+import DeskType from "./DeskType.tsx";
 
 interface Description {
   description: {
@@ -57,7 +57,7 @@ export default function DeskRightPanel({ description }: Description) {
           <div className={styles.rightPanel}>
             <div className={styles.billboard}>
               <h3>{description.name?.fr}</h3>
-              <p>Pokemon de type :</p>
+              <p>Pokémon de type :</p>
               <p> - {description.types[0]?.name}</p>
               {description.types[1]?.name && (
                 <p> - {description.types[1].name}</p>
@@ -82,7 +82,7 @@ export default function DeskRightPanel({ description }: Description) {
               <p>Son poids moyen est lui de :</p>
               <p> - {description.weight}</p>
             </div>
-            <DeskType />
+            <DeskType types={description.types} />
             <DeskSound />
             <DeskPokedexSearchBar />
           </div>
