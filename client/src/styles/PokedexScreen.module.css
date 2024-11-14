@@ -150,12 +150,20 @@
       .vanilla {
         box-shadow: rgb(255, 255, 255) 0px 0px 15px;
       }
-      hr {
+
+      .typeNone {
         border: none;
-        background-color: var(--color-type-secondary);
+        background-color: var(--color-sButton-quaternary);
         height: 100%;
         width: 100%;
         border-radius: 50%;
+        hr {
+          height: 1.5rem;
+          width: 2px;
+          border: none;
+          background-color: var(--color-border);
+          rotate: 45deg;
+        }
       }
     }
   }

@@ -59,7 +59,9 @@ export default function PokedexScreen({ pokemon, types }: PokemonScreen) {
             </span>
           ) : (
             <span>
-              <hr />
+              <span className={styles.typeNone}>
+                <hr />
+              </span>
             </span>
           )}
         </div>
