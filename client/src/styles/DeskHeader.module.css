@@ -8,40 +8,40 @@
     position: absolute;
     right: 20%;
     animation: Ho_oh 1.5s infinite linear;
-    z-index: 6;
+    z-index: 2000;
   }
 
   .cloudOne {
     height: 50px;
     position: absolute;
-    animation: cloudS 15s infinite linear;
+    animation: cloud 17s infinite linear;
   }
 
   .cloudTwo {
     height: 50px;
-    top: 1.5rem;
+    top: 2.25rem;
     position: absolute;
-    animation: cloudTwo 15s infinite;
+    animation: cloudTwo 21s infinite linear;
   }
 
   .cloudThree {
     height: 50px;
-    top: 1rem;
-    left: -10%;
+    top: -0.9rem;
     position: absolute;
-    animation: cloud 35s infinite;
+    animation: cloudThree 30s infinite linear;
   }
 
   .cloudFour {
     height: 50px;
+    top: 1rem;
     position: absolute;
-    animation: cloud 20s infinite;
+    animation: cloudFour 25s infinite linear;
   }
 
   .cloudFive {
     height: 50px;
     position: absolute;
-    animation: cloudTwo 30s infinite;
+    animation: cloudFive 35s infinite linear;
   }
 
   .sky {
@@ -94,188 +94,47 @@
   }
 }
 
-@keyframes cloudS {
+@keyframes cloud {
   0% {
     left: 0%;
   }
   100% {
     left: 100%;
-  }
-}
-
-@keyframes cloud {
-  0% {
-    display: none;
-  }
-  9.99% {
-    left: 10%;
-    display: none;
-  }
-  10% {
-    left: 10%;
-    display: block;
-  }
-  19.99% {
-    left: 10%;
-    display: none;
-  }
-  20% {
-    left: 20%;
-    display: block;
-  }
-  29.99% {
-    left: 20%;
-    display: none;
-  }
-  30% {
-    left: 30%;
-    display: block;
-  }
-  39.99% {
-    left: 30%;
-    display: none;
-  }
-  40% {
-    left: 40%;
-    display: block;
-  }
-  49.99% {
-    left: 40%;
-    display: none;
-  }
-  50% {
-    left: 50%;
-    display: block;
-  }
-  59.99% {
-    left: 50%;
-    display: none;
-  }
-  60% {
-    left: 60%;
-    display: block;
-  }
-  69.99% {
-    left: 60%;
-    display: none;
-  }
-  70% {
-    left: 70%;
-    display: block;
-  }
-  79.99% {
-    left: 70%;
-    display: none;
-  }
-  80% {
-    left: 80%;
-    display: block;
-  }
-  89.99% {
-    left: 80%;
-    display: none;
-  }
-  90% {
-    left: 90%;
-    display: block;
-  }
-  99.99% {
-    left: 90%;
-    display: none;
-  }
-  100% {
-    left: 100%;
-    display: block;
-  }
-  105% {
-    left: 100%;
-    display: none;
   }
 }
 
 @keyframes cloudTwo {
-  9.99% {
-    left: 0%;
-    display: none;
-  }
-  10% {
-    left: 0%;
-    display: block;
-  }
-  19.99% {
-    left: 0%;
-    display: none;
-  }
-  20% {
-    left: 10%;
-    display: block;
-  }
-  29.99% {
-    left: 10%;
-    display: none;
-  }
-  30% {
-    left: 20%;
-    display: block;
-  }
-  39.99% {
-    left: 20%;
-    display: none;
-  }
-  40% {
-    left: 30%;
-    display: block;
-  }
-  49.99% {
-    left: 30%;
-    display: none;
-  }
-  50% {
-    left: 40%;
-    display: block;
-  }
-  59.99% {
-    left: 40%;
-    display: none;
-  }
-  60% {
-    left: 50%;
-    display: block;
-  }
-  69.99% {
-    left: 50%;
-    display: none;
-  }
-  70% {
-    left: 60%;
-    display: block;
-  }
-  79.99% {
-    left: 60%;
-    display: none;
-  }
-  80% {
-    left: 70%;
-    display: block;
-  }
-  89.99% {
-    left: 70%;
-    display: none;
-  }
-  90% {
-    left: 80%;
-    display: block;
-  }
-  99.99% {
-    left: 80%;
-    display: none;
+  0% {
+    left: -5%;
   }
   100% {
-    left: 90%;
-    display: block;
+    left: 100%;
   }
-  105% {
-    left: 90%;
-    display: none;
+}
+
+@keyframes cloudThree {
+  0% {
+    left: -45%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes cloudFour {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes cloudFive {
+  0% {
+    left: -70%;
+  }
+  100% {
+    left: 100%;
   }
 }
