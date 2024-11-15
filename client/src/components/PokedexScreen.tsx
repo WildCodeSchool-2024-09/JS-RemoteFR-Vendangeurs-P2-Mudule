@@ -1,3 +1,4 @@
+import data from "../services/data.json";
 import styles from "../styles/PokedexScreen.module.css";
 
 interface PokemonScreen {
@@ -8,13 +9,20 @@ interface PokemonScreen {
     sprites: {
       regular: string;
     };
-  } | null;
+  };
+  types: { name: string }[];
 }
 
-export default function PokedexScreen({ pokemon }: PokemonScreen) {
+export default function PokedexScreen({ pokemon, types }: PokemonScreen) {
   if (!pokemon) {
     return <p>Chargement...</p>;
   }
+
+  const getTypeData = (typeName: string) => {
+    return data.type.find(
+      (t: { name: string }) => t.name.toLowerCase() === typeName.toLowerCase(),
+    );
+  };
 
   return (
     <section className={styles.desktop}>
@@ -27,14 +35,38 @@ export default function PokedexScreen({ pokemon }: PokemonScreen) {
         <figure className={styles.screen}>
           <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
         </figure>
-        <figure className={styles.type1}>
-          <img src="" alt="" />
-        </figure>
-        <figure className={styles.type2}>
-          <img src="" alt="" />
-        </figure>
+        <div className={styles.displayType}>
+          <span>
+            {(() => {
+              const typeData = getTypeData(types[0].name);
+              if (!typeData) return null;
+              const { name } = typeData;
+              return types[0].name.toLowerCase() === name.toLowerCase() ? (
+                <img src={typeData.vanilla} alt={name} />
+              ) : null;
+            })()}
+          </span>
+          {types[1] ? (
+            <span>
+              {(() => {
+                const typeData = getTypeData(types[1].name);
+                if (!typeData) return null;
+                const { name } = typeData;
+                return types[1].name.toLowerCase() === name.toLowerCase() ? (
+                  <img src={typeData.vanilla} alt={name} />
+                ) : null;
+              })()}
+            </span>
+          ) : (
+            <span>
+              <span className={styles.typeNone}>
+                <hr />
+              </span>
+            </span>
+          )}
+        </div>
         <button type="button">
-          <hr />o
+          <hr />
         </button>
         <div className={styles.barContainer}>
           <hr className={styles.bar1} />
@@ -43,8 +75,6 @@ export default function PokedexScreen({ pokemon }: PokemonScreen) {
           <hr className={styles.bar4} />
         </div>
       </div>
-      <hr className={styles.border} />
-      <hr className={styles.hide} />
     </section>
   );
 }

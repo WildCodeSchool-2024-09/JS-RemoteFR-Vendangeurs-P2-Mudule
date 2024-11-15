@@ -18,9 +18,20 @@ interface Pokemon {
   height: string;
   weight: string;
 }
+const defaultPokemon: Pokemon = {
+  name: { fr: "" },
+  sprites: { regular: "" },
+  pokedex_id: 0,
+  category: "",
+  types: [{ name: "" }, { name: "" }],
+  talents: [{ name: "" }, { name: "" }, { name: "" }],
+  evolution: { pre: [{ name: "" }], next: [{ name: "" }] },
+  height: "",
+  weight: "",
+};
 
 export default function Pokedex() {
-  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [pokemon, setPokemon] = useState<Pokemon | null>(defaultPokemon);
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
   useEffect(() => {
@@ -52,7 +63,7 @@ export default function Pokedex() {
         <hr className={styles.reflect1} />
         <hr className={styles.reflect2} />
         <PokedexSearchBar />
-        <PokedexScreen pokemon={pokemon} />
+        {pokemon && <PokedexScreen types={pokemon.types} pokemon={pokemon} />}
         <PokedexSwitchButtons
           onDecrement={decrementPokemonIndex}
           onIncrement={incrementPokemonIndex}

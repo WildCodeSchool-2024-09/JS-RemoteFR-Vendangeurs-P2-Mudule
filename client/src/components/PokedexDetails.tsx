@@ -23,7 +23,7 @@ export default function PokedexDetails({ description }: Description) {
       <section className={styles.pokedexDetails}>
         <div className={styles.billboard}>
           <h3>{description.name?.fr}</h3>
-          <p>Pokemon de type :</p>
+          <p>Pokémon de type :</p>
           <p> - {description.types[0]?.name}</p>
           {description.types[1]?.name && <p> - {description.types[1].name}</p>}
           <p>Il fait partie de la catégorie des {description.category}</p>
