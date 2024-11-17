@@ -1,4 +1,5 @@
 import styles from "../styles/DeskPokedex.module.css";
+import DeskFooter from "./DeskFooter";
 import DeskHeader from "./DeskHeader";
 import DeskLeftPanel from "./DeskLeftPanel";
 import DeskRightPanel from "./DeskRightPanel";
@@ -57,6 +58,7 @@ export default function DeskPokedex() {
           <DeskRightPanel description={pokemon} />
         </div>
       </section>
+      <DeskFooter />
     </>
   );
 }
