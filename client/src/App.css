@@ -6,6 +6,12 @@
 body {
   margin: 0;
   background-color: var(--color-frame-screen);
+  font-family: "Monocraft", "Times New Roman", Times, serif;
+}
+
+@font-face {
+  font-family: "Monocraft";
+  src: url(../public/Monocraft.ttc);
 }
 
 :root {

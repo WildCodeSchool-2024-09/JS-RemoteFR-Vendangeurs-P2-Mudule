@@ -1,3 +1,4 @@
+import title from "../../public/Title.webp";
 import styles from "../styles/PokedexHeader.module.css";
 
 export default function PokedexHeader() {
@@ -22,7 +23,7 @@ export default function PokedexHeader() {
             <hr />
           </div>
         </div>
-        <h1>Pokédule</h1>
+        <img src={title} alt="Pokédule titre" />
         <hr className={styles.reflect1} />
         <hr className={styles.reflect2} />
       </div>
