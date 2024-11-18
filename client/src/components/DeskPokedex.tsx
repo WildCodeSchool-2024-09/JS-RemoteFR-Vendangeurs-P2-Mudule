@@ -1,4 +1,6 @@
 import styles from "../styles/DeskPokedex.module.css";
+import DeskFooter from "./DeskFooter";
+import DeskHeader from "./DeskHeader";
 import DeskLeftPanel from "./DeskLeftPanel";
 import DeskRightPanel from "./DeskRightPanel";
 
@@ -44,15 +46,19 @@ export default function DeskPokedex() {
   };
 
   return (
-    <section className={styles.deskPokedex}>
-      <div className={styles.pokedexContainer}>
-        <DeskLeftPanel
-          pokemon={pokemon}
-          onIncrement={incrementPokemonIndex}
-          onDecrement={decrementPokemonIndex}
-        />
-        <DeskRightPanel description={pokemon} />
-      </div>
-    </section>
+    <>
+      <DeskHeader />
+      <section className={styles.deskPokedex}>
+        <div className={styles.pokedexContainer}>
+          <DeskLeftPanel
+            pokemon={pokemon}
+            onIncrement={incrementPokemonIndex}
+            onDecrement={decrementPokemonIndex}
+          />
+          <DeskRightPanel description={pokemon} />
+        </div>
+      </section>
+      <DeskFooter />
+    </>
   );
 }

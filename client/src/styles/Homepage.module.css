@@ -39,6 +39,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  border-radius: 10px 10px 0 10px;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 500px rgba(255, 255, 255, 0.5);
   background-color: rgb(115, 104, 104);

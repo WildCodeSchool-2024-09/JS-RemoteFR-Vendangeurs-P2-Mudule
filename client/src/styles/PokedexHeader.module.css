@@ -64,8 +64,9 @@
     }
   }
 
-  h1 {
-    margin-bottom: 0;
+  img {
+    margin-top: 1.5rem;
+    height: 70px;
   }
 
   .diodeContainer {

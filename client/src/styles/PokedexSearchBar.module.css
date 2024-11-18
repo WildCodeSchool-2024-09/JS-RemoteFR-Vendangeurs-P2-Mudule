@@ -26,10 +26,13 @@
       resize: none;
       caret-color: var(--font-color-secondary);
       color: var(--font-color-secondary);
+      font-family: "Monocraft", "Times New Roman", Times, serif;
     }
 
     input::placeholder {
       color: var(--font-color-tertiary);
+      font-family: "Monocraft", "Times New Roman", Times, serif;
+      font-size: 20px;
     }
   }
 }
