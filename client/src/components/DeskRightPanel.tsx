@@ -2,7 +2,7 @@ import type React from "react";
 import styles from "../styles/DeskRightPanel.module.css";
 import DeskPokedexSearchBar from "./DeskPokedexSearchBar";
 import DeskSound from "./DeskSound";
-import DeskType from "./DeskType";
+import DeskType from "./DeskType.tsx";
 
 interface Description {
   category: string;
@@ -82,7 +82,7 @@ const DeskRightPanel: React.FC<DeskRightPanelProps> = ({
                 </>
               )}
             </div>
-            <DeskType />
+            <DeskType types={description?.types || []} />
             <DeskSound />
             <DeskPokedexSearchBar onSearch={onSearch} />
           </div>

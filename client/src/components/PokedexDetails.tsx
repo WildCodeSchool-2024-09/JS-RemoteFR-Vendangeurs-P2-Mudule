@@ -67,7 +67,7 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
               <p key={type.name}> - {type.name}</p>
             ))
           ) : (
-            <p> - Aucun type</p>
+            <p> Aucun type</p>
           )}
           <p>
             Il fait partie de la catégorie des {displayDescription.category}
@@ -78,7 +78,7 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
               <p key={talent.name}> - {talent.name}</p>
             ))
           ) : (
-            <p> - Aucun talent</p>
+            <p> Aucun talent</p>
           )}
           {displayDescription.evolution.pre &&
           displayDescription.evolution.pre.length > 0 ? (
@@ -95,9 +95,9 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
             <p>Pas d'évolution</p>
           )}
           <p>Sa taille moyenne est de :</p>
-          <p> - {displayDescription.height}</p>
+          <p> {displayDescription.height}</p>
           <p>Son poids moyen est lui de :</p>
-          <p> - {displayDescription.weight}</p>
+          <p> {displayDescription.weight}</p>
         </div>
         <div>
           <h3 className={styles.idNumber}>

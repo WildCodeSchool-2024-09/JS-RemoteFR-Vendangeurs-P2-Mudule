@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/Pokedex.module.css";
+import PokedexDetails from "./PokedexDetails";
 import PokedexHeader from "./PokedexHeader";
 import PokedexScreen from "./PokedexScreen";
 import PokedexSearchBar from "./PokedexSearchBar";
-
-import PokedexDetails from "./PokedexDetails";
 import PokedexSwitchButtons from "./PokedexSwitchButton";
 
 interface Type {
@@ -38,10 +37,23 @@ interface Pokemon {
   pokedex_id: number;
 }
 
+const defaultPokemon: Pokemon = {
+  name: { fr: "" },
+  sprites: { regular: "" },
+  pokedex_id: 0,
+  category: "",
+  types: [],
+  talents: [],
+  evolution: { pre: [{ name: "" }], next: [{ name: "" }] },
+  height: "",
+  weight: "",
+};
+
 export default function Pokedex() {
-  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [pokemon, setPokemon] = useState<Pokemon | null>(defaultPokemon);
   const [error, setError] = useState<string | null>(null);
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [types, setTypes] = useState<Type[]>([]);
 
   const handleSearch = (searchTerm: string) => {
     fetch(`https://tyradex.app/api/v1/gen/2?name=${searchTerm.toLowerCase()}`)
@@ -61,15 +73,18 @@ export default function Pokedex() {
         if (index !== -1) {
           setPokemonIndex(index);
           setPokemon(data[index]);
+          setTypes(data[index].types);
           setError(null);
         } else {
           setError("désolé mais ce pokemon n'existe pas");
           setPokemon(null);
+          setTypes([]);
         }
       })
       .catch(() => {
         setError("désolé mais ce pokemon n'existe pas");
         setPokemon(null);
+        setTypes([]);
       });
   };
 
@@ -100,16 +115,19 @@ export default function Pokedex() {
               weight: data[pokemonIndex].weight,
             };
             setPokemon(pokemonData);
+            setTypes(pokemonData.types);
             setError(null);
           } else {
             console.error("Pokemon index out of bounds:", pokemonIndex);
             setError("Pokémon not found");
             setPokemon(null);
+            setTypes([]);
           }
         })
         .catch(() => {
           setError("Pokémon not found");
           setPokemon(null);
+          setTypes([]);
         });
     };
 
@@ -134,7 +152,7 @@ export default function Pokedex() {
         <hr className={styles.reflect1} />
         <hr className={styles.reflect2} />
         <PokedexSearchBar onSearch={handleSearch} />
-        <PokedexScreen pokemon={pokemon} error={error} />
+        <PokedexScreen pokemon={pokemon} error={error} types={types} />
         <PokedexSwitchButtons
           onDecrement={decrementPokemonIndex}
           onIncrement={incrementPokemonIndex}

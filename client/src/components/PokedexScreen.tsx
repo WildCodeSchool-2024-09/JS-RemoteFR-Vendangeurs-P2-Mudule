@@ -1,4 +1,5 @@
 import type React from "react";
+import data from "../services/data.json";
 import styles from "../styles/PokedexScreen.module.css";
 
 interface PokedexScreenProps {
@@ -11,9 +12,14 @@ interface PokedexScreenProps {
     };
   } | null;
   error: string | null;
+  types: { name: string }[];
 }
 
-const PokedexScreen: React.FC<PokedexScreenProps> = ({ pokemon, error }) => {
+const PokedexScreen: React.FC<PokedexScreenProps> = ({
+  pokemon,
+  error,
+  types,
+}) => {
   if (error) {
     return (
       <section className={styles.desktop}>
@@ -52,6 +58,12 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({ pokemon, error }) => {
     return <p>Chargement...</p>;
   }
 
+  const getTypeData = (typeName: string) => {
+    return data.type.find(
+      (t: { name: string }) => t.name.toLowerCase() === typeName.toLowerCase(),
+    );
+  };
+
   return (
     <section className={styles.desktop}>
       <div className={styles.pokedexScreen}>
@@ -63,14 +75,40 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({ pokemon, error }) => {
         <figure className={styles.screen}>
           <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
         </figure>
-        <figure className={styles.type1}>
-          <img src="" alt="" />
-        </figure>
-        <figure className={styles.type2}>
-          <img src="" alt="" />
-        </figure>
+        <div className={styles.displayType}>
+          {types[0] && (
+            <span>
+              {(() => {
+                const typeData = getTypeData(types[0].name);
+                if (!typeData) return null;
+                const { name } = typeData;
+                return types[0].name.toLowerCase() === name.toLowerCase() ? (
+                  <img src={typeData.vanilla} alt={name} />
+                ) : null;
+              })()}
+            </span>
+          )}
+          {types[1] ? (
+            <span>
+              {(() => {
+                const typeData = getTypeData(types[1].name);
+                if (!typeData) return null;
+                const { name } = typeData;
+                return types[1].name.toLowerCase() === name.toLowerCase() ? (
+                  <img src={typeData.vanilla} alt={name} />
+                ) : null;
+              })()}
+            </span>
+          ) : (
+            <span>
+              <span className={styles.typeNone}>
+                <hr />
+              </span>
+            </span>
+          )}
+        </div>
         <button type="button">
-          <hr />o
+          <hr />
         </button>
         <div className={styles.barContainer}>
           <hr className={styles.bar1} />
@@ -79,8 +117,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({ pokemon, error }) => {
           <hr className={styles.bar4} />
         </div>
       </div>
-      <hr className={styles.border} />
-      <hr className={styles.hide} />
     </section>
   );
 };

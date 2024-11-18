@@ -125,6 +125,49 @@
     }
   }
 
+  .displayType {
+    grid-area: 4 / 3 / 5 / 5;
+    height: 2rem;
+    width: 4rem;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    span {
+      border: solid 2px var(--color-border);
+      margin: auto;
+      height: 1.75rem;
+      width: 1.75rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+      }
+      .vanilla {
+        box-shadow: rgb(255, 255, 255) 0px 0px 15px;
+      }
+
+      .typeNone {
+        border: none;
+        background-color: var(--color-sButton-quaternary);
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        hr {
+          height: 1.5rem;
+          width: 2px;
+          border: none;
+          background-color: var(--color-border);
+          rotate: 45deg;
+        }
+      }
+    }
+  }
+
   button {
     grid-area: 4 / 6 / 5 / 8;
     height: 2rem;
