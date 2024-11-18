@@ -1,8 +1,4 @@
 import Ho_oh from "../../public/Ho-oh.webp";
-// import cloudTwo from "../../public/cloud-2.webp";
-// import cloudThree from "../../public/cloud-3.webp";
-// import cloudFour from "../../public/cloud-4.webp";
-// import cloudFive from "../../public/cloud-5.webp";
 import title from "../../public/Title.webp";
 import cloudOne from "../../public/cloud_1.webp";
 import styles from "../styles/DeskHeader.module.css";

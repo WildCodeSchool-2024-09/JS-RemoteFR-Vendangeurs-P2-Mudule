@@ -143,6 +143,10 @@
   .bush_5 {
     grid-area: 1 / 9 / 2 / 10;
     width: 100%;
+    animation: bush 2s ease-in-out 45s 5;
+  }
+  .bush_5:hover {
+    animation: bush 2s infinite;
   }
   .bush_6 {
     grid-area: 2 / 9 / 3 / 10;
@@ -187,6 +191,10 @@
   .bush_16 {
     grid-area: 2 / 24 / 3 / 25;
     width: 100%;
+    animation: bush 2s ease-in-out 30s 5;
+  }
+  .bush_16:hover {
+    animation: bush 2s infinite;
   }
   .bush_17 {
     grid-area: 2 / 51 / 3 / 52;
@@ -203,6 +211,10 @@
   .bush_20 {
     grid-area: 2 / 48 / 3 / 49;
     width: 100%;
+    animation: bush 2s ease-in-out 15s 5;
+  }
+  .bush_20:hover {
+    animation: bush 2s infinite;
   }
   .bush_21 {
     grid-area: 2 / 47 / 3 / 48;
@@ -303,6 +315,27 @@
     height: 95%;
     width: 30%;
     margin: 0 0 0 1.7rem;
+  }
+}
+
+@keyframes bush {
+  44% {
+    rotate: 0deg;
+  }
+  46% {
+    rotate: 10deg;
+  }
+  48% {
+    rotate: -10deg;
+  }
+  50% {
+    rotate: 10deg;
+  }
+  52% {
+    rotate: -10deg;
+  }
+  54% {
+    rotate: 0deg;
   }
 }
 
