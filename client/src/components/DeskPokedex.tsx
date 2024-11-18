@@ -57,15 +57,15 @@ export default function DeskPokedex() {
         if (index !== -1) {
           setPokemonIndex(index);
           setPokemon(data[index]);
-          setError(null); 
+          setError(null);
         } else {
           setError("désolé mais ce pokemon n'existe pas");
-          setPokemon(null); 
+          setPokemon(null);
         }
       })
       .catch(() => {
         setError("désolé mais ce pokemon n'existe pas");
-        setPokemon(null); 
+        setPokemon(null);
       });
   };
 
@@ -86,8 +86,8 @@ export default function DeskPokedex() {
               name: talent.name,
             })),
             evolution: {
-              pre: data[pokemonIndex].evolution.pre,
-              next: data[pokemonIndex].evolution.next,
+              pre: data[pokemonIndex].evolution?.pre || null,
+              next: data[pokemonIndex].evolution?.next || null,
             },
             height: data[pokemonIndex].height,
             weight: data[pokemonIndex].weight,

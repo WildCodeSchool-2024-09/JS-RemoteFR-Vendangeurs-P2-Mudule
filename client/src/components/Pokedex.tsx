@@ -61,43 +61,51 @@ export default function Pokedex() {
         if (index !== -1) {
           setPokemonIndex(index);
           setPokemon(data[index]);
-          setError(null); // Réinitialiser l'erreur si la recherche est réussie
+          setError(null);
         } else {
           setError("désolé mais ce pokemon n'existe pas");
-          setPokemon(null); // Réinitialiser le Pokémon si une erreur se produit
+          setPokemon(null);
         }
       })
       .catch(() => {
         setError("désolé mais ce pokemon n'existe pas");
-        setPokemon(null); // Réinitialiser le Pokémon si une erreur se produit
+        setPokemon(null);
       });
   };
 
   useEffect(() => {
     const getPokemon = () => {
       fetch("https://tyradex.app/api/v1/gen/2")
-        .then((response) => response.json())
+        .then((response) => {
+          return response.json();
+        })
         .then((data) => {
-          const pokemonData: Pokemon = {
-            name: { fr: data[pokemonIndex].name.fr },
-            sprites: { regular: data[pokemonIndex].sprites.regular },
-            pokedex_id: data[pokemonIndex].pokedex_id,
-            category: data[pokemonIndex].category,
-            types: data[pokemonIndex].types.map((type: Type) => ({
-              name: type.name,
-            })),
-            talents: data[pokemonIndex].talents.map((talent: Talent) => ({
-              name: talent.name,
-            })),
-            evolution: {
-              pre: data[pokemonIndex].evolution.pre,
-              next: data[pokemonIndex].evolution.next,
-            },
-            height: data[pokemonIndex].height,
-            weight: data[pokemonIndex].weight,
-          };
-          setPokemon(pokemonData);
-          setError(null);
+          if (data[pokemonIndex]) {
+            const pokemonData: Pokemon = {
+              name: { fr: data[pokemonIndex].name.fr },
+              sprites: { regular: data[pokemonIndex].sprites.regular },
+              pokedex_id: data[pokemonIndex].pokedex_id,
+              category: data[pokemonIndex].category,
+              types: data[pokemonIndex].types.map((type: Type) => ({
+                name: type.name,
+              })),
+              talents: data[pokemonIndex].talents.map((talent: Talent) => ({
+                name: talent.name,
+              })),
+              evolution: {
+                pre: data[pokemonIndex].evolution?.pre || null,
+                next: data[pokemonIndex].evolution?.next || null,
+              },
+              height: data[pokemonIndex].height,
+              weight: data[pokemonIndex].weight,
+            };
+            setPokemon(pokemonData);
+            setError(null);
+          } else {
+            console.error("Pokemon index out of bounds:", pokemonIndex);
+            setError("Pokémon not found");
+            setPokemon(null);
+          }
         })
         .catch(() => {
           setError("Pokémon not found");
