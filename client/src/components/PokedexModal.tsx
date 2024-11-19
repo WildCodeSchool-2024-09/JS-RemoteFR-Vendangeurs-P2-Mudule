@@ -17,7 +17,23 @@ export default function PokedexModal() {
               <hr className={styles.diodeRed1} />
               <hr className={styles.diodeRed2} />
               <div className={styles.screen}>
-                <p>option</p>
+                <h2> - Mentions légales - </h2>
+                <h3> - Site réalisé par - </h3>
+                <p>
+                  - Maxence CHOISELLE & Foxrim/Flavien ROUSSEAU & Sabrina MEJRI
+                  -
+                </p>
+                <h3> - API's - </h3>
+                <p> - Tyradex : Créé par Yarkis & Ashzuu - </p>
+                <h3> - Police d'écriture - </h3>
+                <p> - Monocraft : Créé par IdreesInc - </p>
+                <h3> - Images - </h3>
+                <p> - Titre : textstudio.com - </p>
+                <p> - Sprites : Pokémon Rouge Feu / Vert Feuille - </p>
+                <p> - Sprites nuages : Foxrim/Flavien Rousseau - </p>
+                <p> - Pokémons : API Tyradex -</p>
+                <p> - Background des pokémons : Freepics - </p>
+                <p> - Types : API Tyradex / Foxrim/Flavien Rousseau - </p>
               </div>
               <div
                 className={styles.diodeDesk}
