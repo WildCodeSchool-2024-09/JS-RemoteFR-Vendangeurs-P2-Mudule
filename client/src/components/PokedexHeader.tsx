@@ -1,12 +1,23 @@
 import title from "../../public/Title.webp";
+import { useModal } from "../context/modal";
 import styles from "../styles/PokedexHeader.module.css";
 
 export default function PokedexHeader() {
+  const { modal, setModal } = useModal();
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <>
       <section className={styles.pokedexBorder}>
         <div className={styles.pokedexHeader}>
-          <span className={styles.menuDiodeContainer}>
+          <span
+            className={styles.menuDiodeContainer}
+            onClick={toggleModal}
+            onKeyDown={toggleModal}
+          >
             <span className={styles.menuDiodeReflect}>
               <span>
                 <hr />
