@@ -1,13 +1,16 @@
+import type React from "react";
 import styles from "../styles/DeskControlPanel.module.css";
 
 interface DeskControlPanelProps {
+  pokedex_id: number | null;
+  error: string | null;
   onIncrement: () => void;
   onDecrement: () => void;
-  pokedex_id: number | null;
 }
 
 export default function DeskControlPanel({
   pokedex_id,
+  error,
   onDecrement,
   onIncrement,
 }: DeskControlPanelProps) {
@@ -29,7 +32,7 @@ export default function DeskControlPanel({
           </span>
         </span>
         <div className={styles.displayNumber}>
-          <h3>N°{pokedex_id}</h3>
+          <h3>{error ? "N°404" : `N°${pokedex_id}`}</h3>
         </div>
         <div className={styles.controlContainer}>
           <div className={styles.control}>
@@ -56,7 +59,7 @@ export default function DeskControlPanel({
               <span
                 onClick={onDecrement}
                 className={styles.controlLeft}
-                onKeyDown={(event) => handleKeyDown(event, onIncrement)}
+                onKeyDown={(event) => handleKeyDown(event, onDecrement)}
               >
                 <span className={styles.controlLeftShadow}>
                   <hr />

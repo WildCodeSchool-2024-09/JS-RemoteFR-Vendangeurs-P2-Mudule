@@ -9,9 +9,38 @@ interface PokemonScreen {
       regular: string;
     };
   } | null;
+  error: string | null;
 }
 
-export default function DeskPokedexScreen({ pokemon }: PokemonScreen) {
+export default function DeskPokedexScreen({ pokemon, error }: PokemonScreen) {
+  if (error) {
+    return (
+      <section className={styles.desktop}>
+        <div className={styles.pokedexScreenBorder}>
+          <div className={styles.pokedexScreen}>
+            <hr className={styles.diodeRed1} />
+            <hr className={styles.diodeRed2} />
+            <div className={styles.pokemonName} />
+            <figure className={styles.screen}>
+              <p className={styles.deskErrorMessage}>
+                Désolé je ne trouve pas ce Pokémon !
+              </p>
+            </figure>
+            <div className={styles.diodeDesk}>
+              <hr className={styles.diodeDeskLight} />
+            </div>
+            <div className={styles.barContainer}>
+              <hr className={styles.bar1} />
+              <hr className={styles.bar2} />
+              <hr className={styles.bar3} />
+              <hr className={styles.bar4} />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   if (!pokemon) {
     return <p>Chargement...</p>;
   }

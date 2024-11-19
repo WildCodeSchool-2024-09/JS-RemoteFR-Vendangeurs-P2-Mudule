@@ -105,3 +105,27 @@
     }
   }
 }
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.billboard.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.billboard.error p {
+  animation: blink 1s infinite;
+  margin: 0;
+}
