@@ -67,6 +67,7 @@
   img {
     margin-top: 1.5rem;
     height: 70px;
+    z-index: 5;
   }
 
   .diodeContainer {

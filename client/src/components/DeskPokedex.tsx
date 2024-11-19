@@ -5,6 +5,7 @@ import DeskLeftPanel from "./DeskLeftPanel";
 import DeskRightPanel from "./DeskRightPanel";
 
 import { useEffect, useState } from "react";
+import PokedexModal from "./PokedexModal";
 
 interface Pokemon {
   name: {
@@ -49,6 +50,7 @@ export default function DeskPokedex() {
     <>
       <DeskHeader />
       <section className={styles.deskPokedex}>
+        <PokedexModal />
         <div className={styles.pokedexContainer}>
           <DeskLeftPanel
             pokemon={pokemon}

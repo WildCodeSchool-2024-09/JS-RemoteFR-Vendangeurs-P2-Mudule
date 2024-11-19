@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Homepage from "./components/Homepage";
 import "./App.css";
 import DeskPokedex from "./components/DeskPokedex";
+
 import Pokedex from "./components/Pokedex";
 
 const App: React.FC = () => {
