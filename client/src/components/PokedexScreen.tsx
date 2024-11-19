@@ -1,7 +1,8 @@
+import type React from "react";
 import data from "../services/data.json";
 import styles from "../styles/PokedexScreen.module.css";
 
-interface PokemonScreen {
+interface PokedexScreenProps {
   pokemon: {
     name: {
       fr: string;
@@ -9,11 +10,50 @@ interface PokemonScreen {
     sprites: {
       regular: string;
     };
-  };
+  } | null;
+  error: string | null;
   types: { name: string }[];
 }
 
-export default function PokedexScreen({ pokemon, types }: PokemonScreen) {
+const PokedexScreen: React.FC<PokedexScreenProps> = ({
+  pokemon,
+  error,
+  types,
+}) => {
+  if (error) {
+    return (
+      <section className={styles.desktop}>
+        <div className={styles.pokedexScreen}>
+          <hr className={styles.diodeRed1} />
+          <div className={styles.pokemonName} />
+          <input type="checkbox" name="TOGGLE-SWITCH-ON-OFF" id="" />
+          <figure className={styles.screen}>
+            <p className={styles.errorMessage}>
+              Désolé je ne trouve pas ce Pokémon !
+            </p>
+          </figure>
+          <figure className={styles.type1}>
+            <img src="" alt="" />
+          </figure>
+          <figure className={styles.type2}>
+            <img src="" alt="" />
+          </figure>
+          <button type="button">
+            <hr />o
+          </button>
+          <div className={styles.barContainer}>
+            <hr className={styles.bar1} />
+            <hr className={styles.bar2} />
+            <hr className={styles.bar3} />
+            <hr className={styles.bar4} />
+          </div>
+        </div>
+        <hr className={styles.border} />
+        <hr className={styles.hide} />
+      </section>
+    );
+  }
+
   if (!pokemon) {
     return <p>Chargement...</p>;
   }
@@ -36,16 +76,18 @@ export default function PokedexScreen({ pokemon, types }: PokemonScreen) {
           <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
         </figure>
         <div className={styles.displayType}>
-          <span>
-            {(() => {
-              const typeData = getTypeData(types[0].name);
-              if (!typeData) return null;
-              const { name } = typeData;
-              return types[0].name.toLowerCase() === name.toLowerCase() ? (
-                <img src={typeData.vanilla} alt={name} />
-              ) : null;
-            })()}
-          </span>
+          {types[0] && (
+            <span>
+              {(() => {
+                const typeData = getTypeData(types[0].name);
+                if (!typeData) return null;
+                const { name } = typeData;
+                return types[0].name.toLowerCase() === name.toLowerCase() ? (
+                  <img src={typeData.vanilla} alt={name} />
+                ) : null;
+              })()}
+            </span>
+          )}
           {types[1] ? (
             <span>
               {(() => {
@@ -77,4 +119,6 @@ export default function PokedexScreen({ pokemon, types }: PokemonScreen) {
       </div>
     </section>
   );
-}
+};
+
+export default PokedexScreen;

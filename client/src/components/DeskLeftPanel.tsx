@@ -1,8 +1,10 @@
+import type React from "react";
 import styles from "../styles/DeskLeftPanel.module.css";
 import DeskControlPanel from "./DeskControlPanel";
 import DeskHinge from "./DeskHinge";
 import DeskPokedexHeader from "./DeskPokedexHeader";
 import DeskPokedexScreen from "./DeskPokedexScreen";
+
 interface Pokemon {
   name: {
     fr: string;
@@ -11,19 +13,30 @@ interface Pokemon {
     regular: string;
   };
   pokedex_id: number;
+  category: string;
+  types: { name: string }[];
+  talents: { name: string }[];
+  evolution: {
+    pre: { name: string }[] | null;
+    next: { name: string }[] | null;
+  };
+  height: string;
+  weight: string;
 }
 
 interface DeskLeftPanelProps {
   pokemon: Pokemon | null;
+  error: string | null;
   onIncrement: () => void;
   onDecrement: () => void;
 }
 
-export default function DeskLeftPanel({
+const DeskLeftPanel: React.FC<DeskLeftPanelProps> = ({
   pokemon,
-  onDecrement,
+  error,
   onIncrement,
-}: DeskLeftPanelProps) {
+  onDecrement,
+}) => {
   return (
     <section className={styles.deskLeftPanel}>
       <div className={styles.deskPokedexHeader}>
@@ -34,9 +47,10 @@ export default function DeskLeftPanel({
       </div>
       <div className={styles.pokedexInternBorder}>
         <div className={styles.pokedexIntern}>
-          <DeskPokedexScreen pokemon={pokemon} />
+          <DeskPokedexScreen pokemon={pokemon} error={error} />
           <DeskControlPanel
             pokedex_id={pokemon ? pokemon.pokedex_id : null}
+            error={error}
             onIncrement={onIncrement}
             onDecrement={onDecrement}
           />
@@ -46,4 +60,6 @@ export default function DeskLeftPanel({
       </div>
     </section>
   );
-}
+};
+
+export default DeskLeftPanel;
