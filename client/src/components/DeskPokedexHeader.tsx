@@ -1,10 +1,21 @@
+import { useModal } from "../context/modal";
 import styles from "../styles/DeskPokedexHeader.module.css";
 
 export default function DeskPokedexHeader() {
+  const { modal, setModal } = useModal();
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <section className={styles.pokedexBorder}>
       <div className={styles.pokedexHeader}>
-        <span className={styles.menuDiodeContainer}>
+        <span
+          className={styles.menuDiodeContainer}
+          onClick={toggleModal}
+          onKeyDown={toggleModal}
+        >
           <span className={styles.menuDiodeReflect}>
             <span>
               <hr />

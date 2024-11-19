@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
 interface Modal {
@@ -17,5 +17,9 @@ function ModalProvider({ children }: { children: ReactNode }) {
     </modalContext.Provider>
   );
 }
+
+export const useModal = () => {
+  return useContext(modalContext);
+};
 
 export default ModalProvider;
