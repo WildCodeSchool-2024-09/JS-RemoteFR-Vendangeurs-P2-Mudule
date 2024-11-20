@@ -31,7 +31,7 @@ export default function PokedexModal() {
                 <p> - Titre : textstudio.com - </p>
                 <p> - Sprites : Pokémon Rouge Feu / Vert Feuille - </p>
                 <p> - Sprites nuages : Foxrim/Flavien Rousseau - </p>
-                <p> - Pokémons : API Tyradex -</p>
+                <p> - Pokémons : API Tyradex - </p>
                 <p> - Background des pokémons : Freepics - </p>
                 <p> - Types : API Tyradex / Foxrim/Flavien Rousseau - </p>
               </div>
