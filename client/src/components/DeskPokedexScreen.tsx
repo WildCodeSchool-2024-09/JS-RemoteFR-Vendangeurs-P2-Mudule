@@ -128,6 +128,15 @@ const DeskPokedexScreen: React.FC<DeskPokedexScreenProps> = ({
               />
             </div>
           </figure>
+          <div className={styles.diodeDesk}>
+            <hr className={styles.diodeDeskLight} />
+          </div>
+          <div className={styles.barContainer}>
+            <hr className={styles.bar1} />
+            <hr className={styles.bar2} />
+            <hr className={styles.bar3} />
+            <hr className={styles.bar4} />
+          </div>
         </div>
       </div>
     </section>
