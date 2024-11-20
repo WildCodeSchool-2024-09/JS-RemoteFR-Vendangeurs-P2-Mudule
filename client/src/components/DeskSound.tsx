@@ -13,8 +13,13 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.14;
+      if (on) {
+        audioRef.current.play().catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+      }
     }
-  }, []);
+  }, [on]);
 
   const toggleOn = () => {
     if (audioRef.current) {
@@ -28,23 +33,20 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
   const toggleOff = () => {
     if (audioRef.current) {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0;
       setOn(false);
     }
   };
 
   return (
     <section className={styles.deskSound}>
-      {on && (
-        <audio ref={audioRef} src="./Gen2_intro.mp3" autoPlay>
-          <track
-            kind="captions"
-            src="/captions.vtt"
-            srcLang="en"
-            label="English captions"
-          />
-        </audio>
-      )}
+      <audio ref={audioRef} src="./Gen2_intro.mp3" autoPlay>
+        <track
+          kind="captions"
+          src="/captions.vtt"
+          srcLang="en"
+          label="English captions"
+        />
+      </audio>
       <div className={styles.blackBars}>
         <hr />
         <hr />
@@ -54,20 +56,16 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
           <span
             className={styles.buttonShadowOn}
             onClick={toggleOn}
-            onKeyDown={(e) => e.key === "Enter" && toggleOn()}
+            onKeyDown={toggleOn}
           >
-            <span>
-              <img src="#" alt="#" />
-            </span>
+            <span className="material-symbols-outlined">volume_up</span>
           </span>
           <span
             className={styles.buttonShadowOff}
             onClick={toggleOff}
-            onKeyDown={(e) => e.key === "Enter" && toggleOff()}
+            onKeyDown={toggleOff}
           >
-            <span>
-              <img src="#" alt="#" />
-            </span>
+            <span className="material-symbols-outlined">volume_off</span>
           </span>
           <span className={styles.buttonShadowBark}>
             <span>

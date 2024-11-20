@@ -57,20 +57,13 @@
           justify-content: center;
           align-items: center;
           padding: 8% 0 0 8%;
-
-          img {
-            height: 90%;
-            width: 90%;
-          }
+          font-size: 35px;
         }
       }
 
       .buttonShadowOn:hover span {
         width: 89%;
         height: 89%;
-        img {
-          scale: 1.1;
-        }
       }
 
       .buttonShadowOn:active span {
@@ -96,20 +89,13 @@
           justify-content: center;
           align-items: center;
           padding: 8% 0 0 8%;
-
-          img {
-            height: 90%;
-            width: 90%;
-          }
+          font-size: 35px;
         }
       }
 
       .buttonShadowOff:hover span {
         width: 89%;
         height: 89%;
-        img {
-          scale: 1.1;
-        }
       }
 
       .buttonShadowOff:active span {
@@ -138,8 +124,8 @@
           padding: 8% 0 0 8%;
 
           img {
-            height: 90%;
-            width: 90%;
+            height: 100%;
+            width: 100%;
           }
         }
       }
