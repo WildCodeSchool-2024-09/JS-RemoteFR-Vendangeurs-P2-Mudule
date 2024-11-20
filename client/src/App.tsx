@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import Homepage from "./components/Homepage";
 import "./App.css";
 import DeskPokedex from "./components/DeskPokedex";
+
 import Pokedex from "./components/Pokedex";
+import ModalProvider from "./context/modal";
+import ScrollProvider from "./context/scroll";
 
 const App: React.FC = () => {
   const [showHomepage, setShowHomepage] = useState(true);
@@ -40,8 +43,12 @@ const App: React.FC = () => {
           <>
             {showFadeIn && <div className="fade-in" />}
             <div className={showFadeIn ? "fade-in-content" : ""}>
-              <DeskPokedex />
-              <Pokedex />
+              <ScrollProvider>
+                <ModalProvider>
+                  <DeskPokedex />
+                  <Pokedex />
+                </ModalProvider>
+              </ScrollProvider>
             </div>
           </>
         )}
