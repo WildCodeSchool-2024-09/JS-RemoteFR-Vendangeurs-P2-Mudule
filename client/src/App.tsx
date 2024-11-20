@@ -43,10 +43,6 @@ const App: React.FC = () => {
           <>
             {showFadeIn && <div className="fade-in" />}
             <div className={showFadeIn ? "fade-in-content" : ""}>
-              <ModalProvider>
-                <DeskPokedex />
-                <Pokedex />
-              </ModalProvider>
               <ScrollProvider>
                 <ModalProvider>
                   <DeskPokedex />
