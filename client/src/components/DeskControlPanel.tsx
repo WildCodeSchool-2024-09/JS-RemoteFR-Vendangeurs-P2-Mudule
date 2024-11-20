@@ -1,4 +1,5 @@
 import type React from "react";
+import { useScroll } from "../context/scroll";
 import styles from "../styles/DeskControlPanel.module.css";
 
 interface DeskControlPanelProps {
@@ -23,6 +24,10 @@ export default function DeskControlPanel({
     }
   };
 
+  const scrollContext = useScroll();
+  const scrollUp = scrollContext?.scrollUp;
+  const scrollDown = scrollContext?.scrollDown;
+
   return (
     <section className={styles.deskControlPanel}>
       <div className={styles.panelContainer}>
@@ -37,28 +42,36 @@ export default function DeskControlPanel({
         <div className={styles.controlContainer}>
           <div className={styles.control}>
             <div className={styles.controlShadow}>
-              <span className={styles.controlTop}>
+              <span
+                className={styles.controlTop}
+                onClick={scrollUp}
+                onKeyDown={scrollUp}
+              >
                 <span className={styles.controlTopShadow}>
                   <hr />
                 </span>
               </span>
               <span
-                onClick={onIncrement}
                 className={styles.controlRight}
+                onClick={onIncrement}
                 onKeyDown={(event) => handleKeyDown(event, onIncrement)}
               >
                 <span className={styles.controlRightShadow}>
                   <hr />
                 </span>
               </span>
-              <span className={styles.controlBottom}>
+              <span
+                className={styles.controlBottom}
+                onClick={scrollDown}
+                onKeyDown={scrollDown}
+              >
                 <span className={styles.controlBottomShadow}>
                   <hr />
                 </span>
               </span>
               <span
-                onClick={onDecrement}
                 className={styles.controlLeft}
+                onClick={onDecrement}
                 onKeyDown={(event) => handleKeyDown(event, onDecrement)}
               >
                 <span className={styles.controlLeftShadow}>

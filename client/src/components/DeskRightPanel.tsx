@@ -1,4 +1,5 @@
 import type React from "react";
+import { useScroll } from "../context/scroll.tsx";
 import styles from "../styles/DeskRightPanel.module.css";
 import DeskPokedexSearchBar from "./DeskPokedexSearchBar";
 import DeskSound from "./DeskSound";
@@ -34,12 +35,15 @@ const DeskRightPanel: React.FC<DeskRightPanelProps> = ({
   error,
   onSearch,
 }) => {
+  const scrollContext = useScroll();
+  const scrollRef = scrollContext ? scrollContext.scrollRef : null;
+
   return (
     <section className={styles.deskRightPanel}>
       <div className={styles.deskRightPanelBorder}>
         <div className={styles.pokedexIntern}>
           <div className={styles.rightPanel}>
-            <div className={styles.billboard}>
+            <div className={styles.billboard} ref={scrollRef}>
               {error ? (
                 <div className={styles.deskBillboardError}>
                   <p>( \__/ )</p>
