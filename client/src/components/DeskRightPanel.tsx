@@ -83,7 +83,10 @@ const DeskRightPanel: React.FC<DeskRightPanelProps> = ({
               )}
             </div>
             <DeskType types={description?.types || []} />
-            <DeskSound />
+            <DeskSound
+              pokemonImage={description?.sprites.regular || ""}
+              error={error}
+            />
             <DeskPokedexSearchBar onSearch={onSearch} />
           </div>
           <hr className={styles.reflectIntern1} />
