@@ -1,6 +1,12 @@
+import type React from "react";
 import styles from "../styles/DeskSound.module.css";
 
-export default function DeskSound() {
+interface DeskSoundProps {
+  pokemonImage: string | null;
+  error: string | null;
+}
+
+const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
   return (
     <section className={styles.deskSound}>
       <div className={styles.blackBars}>
@@ -21,7 +27,11 @@ export default function DeskSound() {
           </span>
           <span className={styles.buttonShadowBark}>
             <span>
-              <img src="#" alt="#" />
+              {error ? (
+                <p>désolé</p>
+              ) : (
+                <img src={pokemonImage || "#"} alt="Pokemon" />
+              )}
             </span>
           </span>
         </div>
@@ -35,4 +45,6 @@ export default function DeskSound() {
       </div>
     </section>
   );
-}
+};
+
+export default DeskSound;

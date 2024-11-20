@@ -1,6 +1,24 @@
+import type React from "react";
+import acierImage from "../assets/images/acier.webp";
+import combatImage from "../assets/images/combat.webp";
+import eauImage from "../assets/images/eau.webp";
+import elektrikImage from "../assets/images/elektrik.webp";
+import feeImage from "../assets/images/fee.webp";
+import feuImage from "../assets/images/feu.webp";
+import glaceImage from "../assets/images/glace.webp";
+import insecteImage from "../assets/images/insecte.webp";
+import normalImage from "../assets/images/normal.webp";
+import planteImage from "../assets/images/plante.webp";
+import poisonImage from "../assets/images/poison.webp";
+import psyImage from "../assets/images/psy.webp";
+import rocheImage from "../assets/images/roche.webp";
+import solImage from "../assets/images/sol.webp";
+import spectreImage from "../assets/images/spectre.webp";
+import tenebreImage from "../assets/images/tenebre.webp";
+import volImage from "../assets/images/vol.webp";
 import styles from "../styles/DeskPokedexScreen.module.css";
 
-interface PokemonScreen {
+interface DeskPokedexScreenProps {
   pokemon: {
     name: {
       fr: string;
@@ -10,33 +28,64 @@ interface PokemonScreen {
     };
   } | null;
   error: string | null;
+  types: { name: string }[];
 }
 
-export default function DeskPokedexScreen({ pokemon, error }: PokemonScreen) {
+const typeImages: { [key: string]: string } = {
+  plante: planteImage,
+  acier: acierImage,
+  combat: combatImage,
+  eau: eauImage,
+  électrik: elektrikImage,
+  fée: feeImage,
+  feu: feuImage,
+  glace: glaceImage,
+  insecte: insecteImage,
+  normal: normalImage,
+  poison: poisonImage,
+  psy: psyImage,
+  roche: rocheImage,
+  sol: solImage,
+  spectre: spectreImage,
+  ténèbres: tenebreImage,
+  vol: volImage,
+};
+
+const DeskPokedexScreen: React.FC<DeskPokedexScreenProps> = ({
+  pokemon,
+  error,
+  types,
+}) => {
   if (error) {
     return (
       <section className={styles.desktop}>
-        <div className={styles.pokedexScreenBorder}>
-          <div className={styles.pokedexScreen}>
-            <hr className={styles.diodeRed1} />
-            <hr className={styles.diodeRed2} />
-            <div className={styles.pokemonName} />
-            <figure className={styles.screen}>
-              <p className={styles.deskErrorMessage}>
-                Désolé je ne trouve pas ce Pokémon !
-              </p>
-            </figure>
-            <div className={styles.diodeDesk}>
-              <hr className={styles.diodeDeskLight} />
-            </div>
-            <div className={styles.barContainer}>
-              <hr className={styles.bar1} />
-              <hr className={styles.bar2} />
-              <hr className={styles.bar3} />
-              <hr className={styles.bar4} />
-            </div>
+        <div className={styles.pokedexScreen}>
+          <hr className={styles.diodeRed1} />
+          <div className={styles.pokemonName} />
+          <input type="checkbox" name="TOGGLE-SWITCH-ON-OFF" id="" />
+          <figure className={styles.screen}>
+            <p className={styles.errorMessage}>
+              Désolé je ne trouve pas ce Pokémon !
+            </p>
+          </figure>
+          <figure className={styles.type1}>
+            <img src="" alt="" />
+          </figure>
+          <figure className={styles.type2}>
+            <img src="" alt="" />
+          </figure>
+          <button type="button">
+            <hr />o
+          </button>
+          <div className={styles.barContainer}>
+            <hr className={styles.bar1} />
+            <hr className={styles.bar2} />
+            <hr className={styles.bar3} />
+            <hr className={styles.bar4} />
           </div>
         </div>
+        <hr className={styles.border} />
+        <hr className={styles.hide} />
       </section>
     );
   }
@@ -44,6 +93,17 @@ export default function DeskPokedexScreen({ pokemon, error }: PokemonScreen) {
   if (!pokemon) {
     return <p>Chargement...</p>;
   }
+
+  const isNormalFlying =
+    types[0]?.name.toLowerCase() === "normal" &&
+    types[1]?.name.toLowerCase() === "vol";
+
+  const backgroundImageKey = isNormalFlying
+    ? "vol"
+    : types[0]
+      ? types[0].name.toLowerCase()
+      : "plante";
+  const backgroundImage = typeImages[backgroundImageKey] || planteImage;
 
   return (
     <section className={styles.desktop}>
@@ -55,7 +115,18 @@ export default function DeskPokedexScreen({ pokemon, error }: PokemonScreen) {
             <h2>{pokemon.name.fr}</h2>
           </div>
           <figure className={styles.screen}>
-            <img src={pokemon.sprites.regular} alt={pokemon.name.fr} />
+            <div className={styles.imageContainer}>
+              <img
+                src={backgroundImage}
+                alt="Background"
+                className={styles.backgroundImage}
+              />
+              <img
+                src={pokemon.sprites.regular}
+                alt={pokemon.name.fr}
+                className={styles.pokemonImage}
+              />
+            </div>
           </figure>
           <div className={styles.diodeDesk}>
             <hr className={styles.diodeDeskLight} />
@@ -70,4 +141,6 @@ export default function DeskPokedexScreen({ pokemon, error }: PokemonScreen) {
       </div>
     </section>
   );
-}
+};
+
+export default DeskPokedexScreen;

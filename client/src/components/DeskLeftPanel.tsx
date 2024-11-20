@@ -47,7 +47,15 @@ const DeskLeftPanel: React.FC<DeskLeftPanelProps> = ({
       </div>
       <div className={styles.pokedexInternBorder}>
         <div className={styles.pokedexIntern}>
-          <DeskPokedexScreen pokemon={pokemon} error={error} />
+          {pokemon ? (
+            <DeskPokedexScreen
+              pokemon={pokemon}
+              error={error}
+              types={pokemon.types}
+            />
+          ) : (
+            <p>Chargement...</p>
+          )}
           <DeskControlPanel
             pokedex_id={pokemon ? pokemon.pokedex_id : null}
             error={error}
