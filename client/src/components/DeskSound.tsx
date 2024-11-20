@@ -1,15 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/DeskSound.module.css";
 
-export default function DeskSound() {
-  const [on, setOn] = useState<boolean>(false);
+interface DeskSoundProps {
+  pokemonImage: string | null;
+  error: string | null;
+}
+
+const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
+  const [on, setOn] = useState<boolean>(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.14;
     }
-  });
+  }, []);
 
   const toggleOn = () => {
     if (audioRef.current) {
@@ -66,7 +71,11 @@ export default function DeskSound() {
           </span>
           <span className={styles.buttonShadowBark}>
             <span>
-              <img src="#" alt="#" />
+              {error ? (
+                <p>désolé</p>
+              ) : (
+                <img src={pokemonImage || "#"} alt="Pokemon" />
+              )}
             </span>
           </span>
         </div>
@@ -80,4 +89,6 @@ export default function DeskSound() {
       </div>
     </section>
   );
-}
+};
+
+export default DeskSound;
