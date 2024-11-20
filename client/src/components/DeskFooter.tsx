@@ -19,18 +19,31 @@ export default function DeskFooter() {
   const lac_verticales = [];
 
   for (let i = 1; i <= 16; i++) {
-    trees.push(<img className={styles[`tree_${i}`]} src={tree} alt="arbre" />);
+    trees.push(
+      <img
+        key={`tree_${i}`}
+        className={styles[`tree_${i}`]}
+        src={tree}
+        alt="arbre"
+      />,
+    );
   }
 
   for (let i = 1; i <= 22; i++) {
     bushes.push(
-      <img className={styles[`bush_${i}`]} src={bush} alt="buisson" />,
+      <img
+        key={`bush_${i}`}
+        className={styles[`bush_${i}`]}
+        src={bush}
+        alt="buisson"
+      />,
     );
   }
 
   for (let i = 1; i <= 4; i++) {
     fences_verticales.push(
       <img
+        key={`fence_vertical_${i}`}
         className={styles[`fence_vertical_${i}`]}
         src={fence_vertical}
         alt="barrière vertical"
@@ -41,6 +54,7 @@ export default function DeskFooter() {
   for (let i = 1; i <= 4; i++) {
     fences_horizontales.push(
       <img
+        key={`fence_horizontal_${i}`}
         className={styles[`fence_horizontal_${i}`]}
         src={fence_horizontal}
         alt="barrière horizontal"
@@ -51,6 +65,7 @@ export default function DeskFooter() {
   for (let i = 1; i <= 3; i++) {
     lac_verticales.push(
       <img
+        key={`lac_vertical_${i}`}
         className={styles[`lac_vertical_${i}`]}
         src={lac_vertical}
         alt="bord de lac"

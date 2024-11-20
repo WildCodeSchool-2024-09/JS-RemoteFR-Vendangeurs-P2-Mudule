@@ -4,7 +4,7 @@ import DeskFooter from "./DeskFooter";
 import DeskHeader from "./DeskHeader";
 import DeskLeftPanel from "./DeskLeftPanel";
 import DeskRightPanel from "./DeskRightPanel";
-
+import PokedexModal from "./PokedexModal";
 interface Type {
   name: string;
 }
@@ -118,6 +118,7 @@ export default function DeskPokedex() {
     <>
       <DeskHeader />
       <section className={styles.deskPokedex}>
+        <PokedexModal />
         <div className={styles.pokedexContainer}>
           <DeskLeftPanel
             pokemon={pokemon}
