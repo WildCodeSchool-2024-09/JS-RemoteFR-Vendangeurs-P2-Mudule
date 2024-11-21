@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useMusic } from "../context/music";
 import styles from "../styles/DeskSound.module.css";
 
 interface DeskSoundProps {
@@ -7,46 +7,12 @@ interface DeskSoundProps {
 }
 
 const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
-  const [on, setOn] = useState<boolean>(true);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.14;
-      if (on) {
-        audioRef.current.play().catch((error) => {
-          console.error("Error playing audio:", error);
-        });
-      }
-    }
-  }, [on]);
-
-  const toggleOn = () => {
-    if (audioRef.current) {
-      audioRef.current.play().catch((error) => {
-        console.error("Error playing audio:", error);
-      });
-      setOn(true);
-    }
-  };
-
-  const toggleOff = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      setOn(false);
-    }
-  };
+  const musicContext = useMusic();
+  const musicOff = musicContext?.musicOff;
+  const musicOn = musicContext?.musicOn;
 
   return (
     <section className={styles.deskSound}>
-      <audio ref={audioRef} src="./Gen2_intro.mp3" autoPlay>
-        <track
-          kind="captions"
-          src="/captions.vtt"
-          srcLang="en"
-          label="English captions"
-        />
-      </audio>
       <div className={styles.blackBars}>
         <hr />
         <hr />
@@ -55,15 +21,15 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
         <div className={styles.soundButtons}>
           <span
             className={styles.buttonShadowOn}
-            onClick={toggleOn}
-            onKeyDown={toggleOn}
+            onClick={musicOn}
+            onKeyDown={musicOn}
           >
             <span className="material-symbols-outlined">volume_up</span>
           </span>
           <span
             className={styles.buttonShadowOff}
-            onClick={toggleOff}
-            onKeyDown={toggleOff}
+            onClick={musicOff}
+            onKeyDown={musicOff}
           >
             <span className="material-symbols-outlined">volume_off</span>
           </span>

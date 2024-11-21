@@ -6,6 +6,7 @@ import DeskPokedex from "./components/DeskPokedex";
 
 import Pokedex from "./components/Pokedex";
 import ModalProvider from "./context/modal";
+import MusicProvider from "./context/music";
 import ScrollProvider from "./context/scroll";
 
 const App: React.FC = () => {
@@ -57,12 +58,14 @@ const App: React.FC = () => {
           <>
             {showFadeIn && <div className="fade-in" />}
             <div className={showFadeIn ? "fade-in-content" : ""}>
-              <ScrollProvider>
-                <ModalProvider>
-                  <DeskPokedex />
-                  <Pokedex />
-                </ModalProvider>
-              </ScrollProvider>
+              <MusicProvider>
+                <ScrollProvider>
+                  <ModalProvider>
+                    <DeskPokedex />
+                    <Pokedex />
+                  </ModalProvider>
+                </ScrollProvider>
+              </MusicProvider>
             </div>
           </>
         )}
