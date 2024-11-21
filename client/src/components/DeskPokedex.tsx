@@ -38,6 +38,7 @@ interface Evolution {
 
 interface Sprites {
   regular: string;
+  shiny: string;
 }
 
 interface Pokemon {
@@ -78,6 +79,11 @@ export default function DeskPokedex() {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [isShiny, setIsShiny] = useState(false);
+
+  const toggleShiny = () => {
+    setIsShiny(!isShiny);
+  };
 
   const handleSearch = (searchTerm: string) => {
     fetch(`https://tyradex.app/api/v1/gen/2?name=${searchTerm.toLowerCase()}`)
@@ -117,7 +123,10 @@ export default function DeskPokedex() {
           if (data[pokemonIndex]) {
             const pokemonData: Pokemon = {
               name: { fr: data[pokemonIndex].name.fr },
-              sprites: { regular: data[pokemonIndex].sprites.regular },
+              sprites: {
+                regular: data[pokemonIndex].sprites.regular,
+                shiny: data[pokemonIndex].sprites.shiny,
+              },
               pokedex_id: data[pokemonIndex].pokedex_id,
               category: data[pokemonIndex].category,
               types: data[pokemonIndex].types.map((type: Type) => ({
@@ -182,6 +191,8 @@ export default function DeskPokedex() {
         <PokedexModal />
         <div className={styles.pokedexContainer}>
           <DeskLeftPanel
+            isShiny={isShiny}
+            toggleShiny={toggleShiny}
             pokemon={pokemon}
             error={error}
             onIncrement={incrementPokemonIndex}

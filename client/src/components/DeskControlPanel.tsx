@@ -7,6 +7,7 @@ interface DeskControlPanelProps {
   error: string | null;
   onIncrement: () => void;
   onDecrement: () => void;
+  toggleShiny: () => void;
 }
 
 export default function DeskControlPanel({
@@ -14,6 +15,7 @@ export default function DeskControlPanel({
   error,
   onDecrement,
   onIncrement,
+  toggleShiny,
 }: DeskControlPanelProps) {
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLSpanElement>,
@@ -31,11 +33,17 @@ export default function DeskControlPanel({
   return (
     <section className={styles.deskControlPanel}>
       <div className={styles.panelContainer}>
-        <span className={styles.shinyButton}>
+        <button
+          type="button"
+          className={styles.shinyButton}
+          onClick={toggleShiny}
+          onKeyDown={(event) => handleKeyDown(event, toggleShiny)}
+          tabIndex={0}
+        >
           <span className={styles.shinyButtonShadow}>
             <hr className={styles.shinyButtonCenter} />
           </span>
-        </span>
+        </button>
         <div className={styles.displayNumber}>
           <h3>{error ? "N°404" : `N°${pokedex_id}`}</h3>
         </div>
