@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Pokedex.module.css";
 import PokedexDetails from "./PokedexDetails";
 import PokedexHeader from "./PokedexHeader";
+import PokedexModal from "./PokedexModal";
 import PokedexScreen from "./PokedexScreen";
 import PokedexSearchBar from "./PokedexSearchBar";
 import PokedexSwitchButtons from "./PokedexSwitchButton";
@@ -145,6 +146,7 @@ export default function Pokedex() {
   return (
     <>
       <div className={styles.pokedex}>
+        <PokedexModal />
         <PokedexHeader />
         <div className={styles.borderIternTop}>
           <hr />

@@ -10,7 +10,7 @@ export default function PokedexModal() {
 
   return (
     <>
-      {modal === true && (
+      {modal && (
         <section className={styles.desktop}>
           <div className={styles.pokedexScreenBorder}>
             <div className={styles.pokedexScreen}>
@@ -34,6 +34,13 @@ export default function PokedexModal() {
                 <p> - Pokémons : API Tyradex - </p>
                 <p> - Background des pokémons : Freepics - </p>
                 <p> - Types : API Tyradex / Foxrim/Flavien Rousseau - </p>
+                <p> - Musique - </p>
+                <p> - Thème principal : Pokémon 2ème génération 1999 - </p>
+                <p> - Sound Effect - </p>
+                <p>
+                  {" "}
+                  - Ouverture du Pokédex : Ouverture Pokéball Sound Animé -{" "}
+                </p>
               </div>
               <div
                 className={styles.diodeDesk}
