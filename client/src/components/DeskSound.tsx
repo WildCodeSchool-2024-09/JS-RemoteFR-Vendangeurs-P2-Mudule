@@ -36,7 +36,7 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
           <span className={styles.buttonShadowBark}>
             <span>
               {error ? (
-                <p>désolé</p>
+                <p className={styles.errorP}>X</p>
               ) : (
                 <img src={pokemonImage || "#"} alt="Pokemon" />
               )}

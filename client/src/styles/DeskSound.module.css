@@ -124,10 +124,14 @@
           padding: 8% 0 0 8%;
 
           img {
-            height: 100%;
-            width: 100%;
+            height: 92%;
+            width: 92%;
           }
         }
+      }
+
+      .errorP {
+        display: none;
       }
 
       .buttonShadowBark:hover span {
