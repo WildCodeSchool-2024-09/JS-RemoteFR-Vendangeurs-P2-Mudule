@@ -1,4 +1,4 @@
-import type React from "react";
+import { useMusic } from "../context/music";
 import styles from "../styles/DeskSound.module.css";
 
 interface DeskSoundProps {
@@ -7,6 +7,10 @@ interface DeskSoundProps {
 }
 
 const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
+  const musicContext = useMusic();
+  const musicOff = musicContext?.musicOff;
+  const musicOn = musicContext?.musicOn;
+
   return (
     <section className={styles.deskSound}>
       <div className={styles.blackBars}>
@@ -15,20 +19,24 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
       </div>
       <div className={styles.soundButtonsContainer}>
         <div className={styles.soundButtons}>
-          <span className={styles.buttonShadowOn}>
-            <span>
-              <img src="#" alt="#" />
-            </span>
+          <span
+            className={styles.buttonShadowOn}
+            onClick={musicOn}
+            onKeyDown={musicOn}
+          >
+            <span className="material-symbols-outlined">volume_up</span>
           </span>
-          <span className={styles.buttonShadowOff}>
-            <span>
-              <img src="#" alt="#" />
-            </span>
+          <span
+            className={styles.buttonShadowOff}
+            onClick={musicOff}
+            onKeyDown={musicOff}
+          >
+            <span className="material-symbols-outlined">volume_off</span>
           </span>
           <span className={styles.buttonShadowBark}>
             <span>
               {error ? (
-                <p>désolé</p>
+                <p className={styles.errorP}>X</p>
               ) : (
                 <img src={pokemonImage || "#"} alt="Pokemon" />
               )}

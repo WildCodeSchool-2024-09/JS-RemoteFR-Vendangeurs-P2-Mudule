@@ -17,6 +17,7 @@ import solImage from "../assets/images/sol.webp";
 import spectreImage from "../assets/images/spectre.webp";
 import tenebreImage from "../assets/images/tenebre.webp";
 import volImage from "../assets/images/vol.webp";
+import { useMusic } from "../context/music";
 import data from "../services/data.json";
 import styles from "../styles/PokedexScreen.module.css";
 
@@ -58,6 +59,7 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
   error,
   types,
 }) => {
+  const { musicToggle } = useMusic();
   const [isShiny, setIsShiny] = useState(false);
 
   const toggleShiny = () => {
@@ -70,17 +72,23 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
         <div className={styles.pokedexScreen}>
           <hr className={styles.diodeRed1} />
           <div className={styles.pokemonName} />
-          <input type="checkbox" name="TOGGLE-SWITCH-ON-OFF" id="" />
+          <input
+            type="checkbox"
+            name="TOGGLE-SWITCH-ON-OFF"
+            id=""
+            onClick={musicToggle}
+            onKeyDown={musicToggle}
+          />
           <figure className={styles.screen}>
             <p className={styles.errorMessage}>
               Désolé je ne trouve pas ce Pokémon !
             </p>
           </figure>
           <figure className={styles.type1}>
-            <img src="" alt="" />
+            <img src="#" alt="diode" />
           </figure>
           <figure className={styles.type2}>
-            <img src="" alt="" />
+            <img src="#" alt="diode" />
           </figure>
           <button type="button">
             <hr />o
@@ -120,7 +128,13 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
       <div className={styles.pokedexScreenBorder}>
         <div className={styles.pokedexScreen}>
           <hr className={styles.diodeRed1} />
-
+          <input
+            type="checkbox"
+            name="TOGGLE-SWITCH-ON-OFF"
+            id=""
+            onClick={musicToggle}
+            onKeyDown={musicToggle}
+          />
           <div className={styles.pokemonName}>
             <h2>{pokemon?.name.fr}</h2>
           </div>

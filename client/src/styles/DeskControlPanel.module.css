@@ -24,7 +24,7 @@
       border: solid 3px var(--color-border);
       border-radius: 50%;
       margin: auto;
-
+      padding: 0;
       cursor: pointer;
 
       display: flex;
@@ -34,8 +34,8 @@
       overflow: hidden;
 
       .shinyButtonShadow {
-        height: 100%;
-        width: 100%;
+        height: 95%;
+        width: 95%;
         border-radius: 50%;
         background-color: var(--color-button-secondary);
         padding: 4% 0 0 4%;
