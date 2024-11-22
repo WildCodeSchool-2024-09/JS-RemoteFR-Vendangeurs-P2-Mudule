@@ -11,6 +11,7 @@ interface Pokemon {
   };
   sprites: {
     regular: string;
+    shiny: string;
   };
   pokedex_id: number;
   category: string;
@@ -29,6 +30,8 @@ interface DeskLeftPanelProps {
   error: string | null;
   onIncrement: () => void;
   onDecrement: () => void;
+  isShiny: boolean;
+  toggleShiny: () => void;
 }
 
 const DeskLeftPanel: React.FC<DeskLeftPanelProps> = ({
@@ -36,6 +39,8 @@ const DeskLeftPanel: React.FC<DeskLeftPanelProps> = ({
   error,
   onIncrement,
   onDecrement,
+  isShiny,
+  toggleShiny,
 }) => {
   return (
     <section className={styles.deskLeftPanel}>
@@ -47,20 +52,19 @@ const DeskLeftPanel: React.FC<DeskLeftPanelProps> = ({
       </div>
       <div className={styles.pokedexInternBorder}>
         <div className={styles.pokedexIntern}>
-          {pokemon ? (
-            <DeskPokedexScreen
-              pokemon={pokemon}
-              error={error}
-              types={pokemon.types}
-            />
-          ) : (
-            <p>Chargement...</p>
-          )}
+          <DeskPokedexScreen
+            pokemon={pokemon}
+            error={error}
+            types={pokemon?.types || []}
+            isShiny={isShiny}
+          />
+
           <DeskControlPanel
             pokedex_id={pokemon ? pokemon.pokedex_id : null}
             error={error}
             onIncrement={onIncrement}
             onDecrement={onDecrement}
+            toggleShiny={toggleShiny}
           />
           <hr className={styles.reflectIntern1} />
           <hr className={styles.reflectIntern2} />

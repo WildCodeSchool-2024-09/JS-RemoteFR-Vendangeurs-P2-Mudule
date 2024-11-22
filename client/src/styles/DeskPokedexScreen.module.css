@@ -241,7 +241,7 @@
   }
 }
 
-.deskErrorMessage {
+.errorMessage {
   color: white;
   font-size: small;
   overflow: hidden;

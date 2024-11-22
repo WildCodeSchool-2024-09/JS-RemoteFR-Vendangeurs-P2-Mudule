@@ -22,6 +22,7 @@ interface Evolution {
 
 interface Sprites {
   regular: string;
+  shiny: string;
 }
 
 interface Pokemon {
@@ -40,7 +41,7 @@ interface Pokemon {
 
 const defaultPokemon: Pokemon = {
   name: { fr: "" },
-  sprites: { regular: "" },
+  sprites: { regular: "", shiny: "" },
   pokedex_id: 0,
   category: "",
   types: [],
@@ -99,7 +100,10 @@ export default function Pokedex() {
           if (data[pokemonIndex]) {
             const pokemonData: Pokemon = {
               name: { fr: data[pokemonIndex].name.fr },
-              sprites: { regular: data[pokemonIndex].sprites.regular },
+              sprites: {
+                regular: data[pokemonIndex].sprites.regular,
+                shiny: data[pokemonIndex].sprites.shiny,
+              },
               pokedex_id: data[pokemonIndex].pokedex_id,
               category: data[pokemonIndex].category,
               types: data[pokemonIndex].types.map((type: Type) => ({
