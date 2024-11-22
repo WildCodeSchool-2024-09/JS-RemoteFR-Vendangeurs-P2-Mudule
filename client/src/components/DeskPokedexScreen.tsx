@@ -25,10 +25,12 @@ interface DeskPokedexScreenProps {
     };
     sprites: {
       regular: string;
+      shiny: string;
     };
   } | null;
   error: string | null;
   types: { name: string }[];
+  isShiny: boolean;
 }
 
 const typeImages: { [key: string]: string } = {
@@ -55,37 +57,32 @@ const DeskPokedexScreen: React.FC<DeskPokedexScreenProps> = ({
   pokemon,
   error,
   types,
+  isShiny,
 }) => {
   if (error) {
     return (
       <section className={styles.desktop}>
-        <div className={styles.pokedexScreen}>
-          <hr className={styles.diodeRed1} />
-          <div className={styles.pokemonName} />
-          <input type="checkbox" name="TOGGLE-SWITCH-ON-OFF" id="" />
-          <figure className={styles.screen}>
-            <p className={styles.errorMessage}>
-              Désolé je ne trouve pas ce Pokémon !
-            </p>
-          </figure>
-          <figure className={styles.type1}>
-            <img src="" alt="" />
-          </figure>
-          <figure className={styles.type2}>
-            <img src="" alt="" />
-          </figure>
-          <button type="button">
-            <hr />o
-          </button>
-          <div className={styles.barContainer}>
-            <hr className={styles.bar1} />
-            <hr className={styles.bar2} />
-            <hr className={styles.bar3} />
-            <hr className={styles.bar4} />
+        <div className={styles.pokedexScreenBorder}>
+          <div className={styles.pokedexScreen}>
+            <hr className={styles.diodeRed1} />
+            <hr className={styles.diodeRed2} />
+            <div className={styles.pokemonName} />
+            <div className={styles.screen}>
+              <p className={styles.errorMessage}>
+                Désolé je ne trouve pas ce pokémon!{" "}
+              </p>
+            </div>
+            <div className={styles.diodeDesk}>
+              <hr className={styles.diodeDeskLight} />
+            </div>
+            <div className={styles.barContainer}>
+              <hr className={styles.bar1} />
+              <hr className={styles.bar2} />
+              <hr className={styles.bar3} />
+              <hr className={styles.bar4} />
+            </div>
           </div>
         </div>
-        <hr className={styles.border} />
-        <hr className={styles.hide} />
       </section>
     );
   }
@@ -121,11 +118,15 @@ const DeskPokedexScreen: React.FC<DeskPokedexScreenProps> = ({
                 alt="Background"
                 className={styles.backgroundImage}
               />
-              <img
-                src={pokemon.sprites.regular}
-                alt={pokemon.name.fr}
-                className={styles.pokemonImage}
-              />
+              {pokemon && (
+                <img
+                  src={
+                    isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular
+                  }
+                  alt={pokemon.name.fr}
+                  className={styles.pokemonImage}
+                />
+              )}
             </div>
           </figure>
           <div className={styles.diodeDesk}>

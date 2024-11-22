@@ -1,4 +1,5 @@
 import type React from "react";
+import { useState } from "react";
 import acierImage from "../assets/images/acier.webp";
 import combatImage from "../assets/images/combat.webp";
 import eauImage from "../assets/images/eau.webp";
@@ -26,6 +27,7 @@ interface PokedexScreenProps {
     };
     sprites: {
       regular: string;
+      shiny: string;
     };
   } | null;
   error: string | null;
@@ -51,12 +53,17 @@ const typeImages: { [key: string]: string } = {
   ténèbres: tenebreImage,
   vol: volImage,
 };
-
 const PokedexScreen: React.FC<PokedexScreenProps> = ({
   pokemon,
   error,
   types,
 }) => {
+  const [isShiny, setIsShiny] = useState(false);
+
+  const toggleShiny = () => {
+    setIsShiny(!isShiny);
+  };
+
   if (error) {
     return (
       <section className={styles.desktop}>
@@ -91,10 +98,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
     );
   }
 
-  if (!pokemon) {
-    return <p>Chargement...</p>;
-  }
-
   const isNormalFlying =
     types[0]?.name.toLowerCase() === "normal" &&
     types[1]?.name.toLowerCase() === "vol";
@@ -105,11 +108,13 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
       ? types[0].name.toLowerCase()
       : "plante";
   const backgroundImage = typeImages[backgroundImageKey] || planteImage;
+
   const getTypeData = (typeName: string) => {
     return data.type.find(
       (t: { name: string }) => t.name.toLowerCase() === typeName.toLowerCase(),
     );
   };
+
   return (
     <section className={styles.desktop}>
       <div className={styles.pokedexScreenBorder}>
@@ -117,7 +122,7 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
           <hr className={styles.diodeRed1} />
 
           <div className={styles.pokemonName}>
-            <h2>{pokemon.name.fr}</h2>
+            <h2>{pokemon?.name.fr}</h2>
           </div>
           <figure className={styles.screen}>
             <div className={styles.imageContainer}>
@@ -126,11 +131,15 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 alt="Background"
                 className={styles.backgroundImage}
               />
-              <img
-                src={pokemon.sprites.regular}
-                alt={pokemon.name.fr}
-                className={styles.pokemonImage}
-              />
+              {pokemon && (
+                <img
+                  src={
+                    isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular
+                  }
+                  alt={pokemon.name.fr}
+                  className={styles.pokemonImage}
+                />
+              )}
             </div>
           </figure>
           <div className={styles.displayType}>
@@ -165,7 +174,11 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
               </span>
             )}
           </div>
-          <button type="button">
+          <button
+            className={styles.boutonshiny}
+            type="button"
+            onClick={toggleShiny}
+          >
             <hr />
           </button>
           <div className={styles.barContainer}>
