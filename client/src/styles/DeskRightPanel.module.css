@@ -88,24 +88,26 @@
 
         .reflectIntern1 {
           position: absolute;
-          height: 41rem;
+          height: 46rem;
           width: 2.5rem;
           border: none;
           rotate: 25deg;
           background-color: var(--color-intern-secondary);
           right: 20rem;
           bottom: 3rem;
+          margin: 0;
         }
 
         .reflectIntern2 {
           position: absolute;
-          height: 42rem;
+          height: 46rem;
           width: 2.5rem;
           border: none;
           rotate: 25deg;
           background-color: var(--color-intern-secondary);
           right: 47rem;
           bottom: 3rem;
+          margin: 0;
         }
       }
     }
