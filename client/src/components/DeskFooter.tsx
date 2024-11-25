@@ -4,6 +4,7 @@ import fence_corner from "../../public/fence_corner.webp";
 import fence_horizontal from "../../public/fence_horizontal.webp";
 import fence_vertical from "../../public/fence_vertical.webp";
 import lac_vertical from "../../public/lac_vertical.webp";
+import noarfang from "../../public/noarfang.webp";
 import road from "../../public/road.webp";
 import shadow from "../../public/shadow.webp";
 import tree from "../../public/tree.webp";
@@ -18,6 +19,8 @@ export default function DeskFooter() {
   const [shadow_1, setShadow_1] = useState<boolean>(false);
   const [shadow_2, setShadow_2] = useState<boolean>(false);
   const [shadow_3, setShadow_3] = useState<boolean>(false);
+  const [vol, setVol] = useState<boolean>(false);
+  const [volTimeoutActive, setVolTimeoutActive] = useState<boolean>(false);
 
   const trees = [];
   const bushes = [];
@@ -52,7 +55,7 @@ export default function DeskFooter() {
   );
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const bushInterval = setInterval(() => {
       const result = getRandomDelay(15);
       if (result === 5) {
         setBush_1(true);
@@ -73,8 +76,24 @@ export default function DeskFooter() {
         }, 3000);
       }
     }, 1000);
-    return () => clearInterval(interval);
-  }, [getRandomDelay]);
+
+    const volInterval = setInterval(() => {
+      const result = getRandomDelay(15);
+      if (result === 2 && !volTimeoutActive) {
+        setVol(true);
+        setVolTimeoutActive(true);
+        setTimeout(() => {
+          setVol(false);
+          setVolTimeoutActive(false);
+        }, 60000);
+      }
+    }, 60000);
+
+    return () => {
+      clearInterval(bushInterval);
+      clearInterval(volInterval);
+    };
+  }, [getRandomDelay, volTimeoutActive]);
 
   for (let i = 1; i <= 16; i++) {
     trees.push(
@@ -225,6 +244,13 @@ export default function DeskFooter() {
         src={water_shadow}
         alt="ombre de lac"
       />
+      {vol && (
+        <img
+          className={styles.noarfang}
+          src={noarfang}
+          alt="noarfang qui vol dans le ciel"
+        />
+      )}
     </footer>
   );
 }
