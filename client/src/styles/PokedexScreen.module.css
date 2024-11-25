@@ -348,11 +348,11 @@
 
 .starsAnimation {
   grid-area: 2 / 2 / 4 / 9;
-  z-index: 10;
+  z-index: 1;
   height: 100%;
   width: 100%;
   svg {
-    z-index: 10;
+    z-index: 1;
     width: 50vw;
     height: auto;
   }
