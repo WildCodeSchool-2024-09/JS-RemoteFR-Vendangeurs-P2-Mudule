@@ -23,6 +23,26 @@ function MusicProvider({ children }: { children: ReactNode }) {
   const [music, setMusic] = useState<boolean>(true);
   const musicRef = useRef<HTMLAudioElement>(null);
 
+  useEffect(() => {
+    if (musicRef.current) {
+      musicRef.current.volume = 0.14;
+      if (!music) {
+        musicRef.current.pause();
+      } else {
+        musicRef.current.play();
+      }
+      const handleEnded = () => {
+        setMusic(false);
+      };
+
+      musicRef.current.addEventListener("ended", handleEnded);
+
+      return () => {
+        musicRef.current?.removeEventListener("ended", handleEnded);
+      };
+    }
+  }, [music]);
+
   const musicOn = () => {
     if (!music && musicRef.current) {
       musicRef.current.play();
@@ -46,17 +66,6 @@ function MusicProvider({ children }: { children: ReactNode }) {
       setMusic(false);
     }
   };
-
-  useEffect(() => {
-    if (musicRef.current) {
-      musicRef.current.volume = 0.14;
-      if (!music) {
-        musicRef.current.pause();
-      } else {
-        musicRef.current.play();
-      }
-    }
-  }, [music]);
 
   return (
     <musicContext.Provider
