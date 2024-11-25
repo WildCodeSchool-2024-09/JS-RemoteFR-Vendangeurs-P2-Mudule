@@ -145,16 +145,14 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 alt="Background"
                 className={styles.backgroundImage}
               />
-              {pokemon && (
-                <img
-                  src={
-                    isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular
-                  }
-                  alt={pokemon.name.fr}
-                  className={styles.pokemonImage}
-                />
-              )}
             </div>
+            {pokemon && (
+              <img
+                src={isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular}
+                alt={pokemon.name.fr}
+                className={styles.pokemonImage}
+              />
+            )}
           </figure>
           <div className={styles.displayType}>
             {types[0] && (

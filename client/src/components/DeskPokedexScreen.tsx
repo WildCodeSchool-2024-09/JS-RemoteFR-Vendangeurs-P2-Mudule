@@ -118,16 +118,14 @@ const DeskPokedexScreen: React.FC<DeskPokedexScreenProps> = ({
                 alt="Background"
                 className={styles.backgroundImage}
               />
-              {pokemon && (
-                <img
-                  src={
-                    isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular
-                  }
-                  alt={pokemon.name.fr}
-                  className={styles.pokemonImage}
-                />
-              )}
             </div>
+            {pokemon && (
+              <img
+                src={isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular}
+                alt={pokemon.name.fr}
+                className={styles.pokemonImage}
+              />
+            )}
           </figure>
           <div className={styles.diodeDesk}>
             <hr className={styles.diodeDeskLight} />
