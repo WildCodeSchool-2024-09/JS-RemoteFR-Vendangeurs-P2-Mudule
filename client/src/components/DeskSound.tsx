@@ -10,6 +10,7 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
   const musicContext = useMusic();
   const musicOff = musicContext?.musicOff;
   const musicOn = musicContext?.musicOn;
+  const music = musicContext?.music;
 
   return (
     <section className={styles.deskSound}>
@@ -19,20 +20,40 @@ const DeskSound: React.FC<DeskSoundProps> = ({ pokemonImage, error }) => {
       </div>
       <div className={styles.soundButtonsContainer}>
         <div className={styles.soundButtons}>
-          <span
-            className={styles.buttonShadowOn}
-            onClick={musicOn}
-            onKeyDown={musicOn}
-          >
-            <span className="material-symbols-outlined">volume_up</span>
-          </span>
-          <span
-            className={styles.buttonShadowOff}
-            onClick={musicOff}
-            onKeyDown={musicOff}
-          >
-            <span className="material-symbols-outlined">volume_off</span>
-          </span>
+          {music ? (
+            <span
+              className={styles.buttonShadowOn}
+              onClick={musicOn}
+              onKeyDown={musicOn}
+            >
+              <span className="material-symbols-outlined">volume_up</span>
+            </span>
+          ) : (
+            <span
+              className={`${styles.buttonShadowOn} ${styles.musicOff}`}
+              onClick={musicOn}
+              onKeyDown={musicOn}
+            >
+              <span className="material-symbols-outlined">volume_up</span>
+            </span>
+          )}
+          {!music ? (
+            <span
+              className={styles.buttonShadowOff}
+              onClick={musicOff}
+              onKeyDown={musicOff}
+            >
+              <span className="material-symbols-outlined">volume_off</span>
+            </span>
+          ) : (
+            <span
+              className={`${styles.buttonShadowOff} ${styles.musicOff}`}
+              onClick={musicOff}
+              onKeyDown={musicOff}
+            >
+              <span className="material-symbols-outlined">volume_off</span>
+            </span>
+          )}
           <span className={styles.buttonShadowBark}>
             <span>
               {error ? (
