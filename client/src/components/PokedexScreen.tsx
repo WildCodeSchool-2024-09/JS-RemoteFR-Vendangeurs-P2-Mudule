@@ -61,6 +61,8 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
 }) => {
   const { musicToggle } = useMusic();
   const [isShiny, setIsShiny] = useState(false);
+  const musicContext = useMusic();
+  const music = musicContext?.music;
 
   const toggleShiny = () => {
     setIsShiny(!isShiny);
@@ -72,13 +74,24 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
         <div className={styles.pokedexScreen}>
           <hr className={styles.diodeRed1} />
           <div className={styles.pokemonName} />
-          <input
-            type="checkbox"
-            name="TOGGLE-SWITCH-ON-OFF"
-            id=""
-            onClick={musicToggle}
-            onKeyDown={musicToggle}
-          />
+          {music ? (
+            <input
+              type="checkbox"
+              name="TOGGLE-SWITCH-ON-OFF"
+              id=""
+              onClick={musicToggle}
+              onKeyDown={musicToggle}
+            />
+          ) : (
+            <input
+              type="checkbox"
+              name="TOGGLE-SWITCH-ON-OFF"
+              id=""
+              onClick={musicToggle}
+              onKeyDown={musicToggle}
+              checked
+            />
+          )}
           <figure className={styles.screen}>
             <p className={styles.errorMessage}>
               Désolé je ne trouve pas ce Pokémon !
@@ -128,13 +141,24 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
       <div className={styles.pokedexScreenBorder}>
         <div className={styles.pokedexScreen}>
           <hr className={styles.diodeRed1} />
-          <input
-            type="checkbox"
-            name="TOGGLE-SWITCH-ON-OFF"
-            id=""
-            onClick={musicToggle}
-            onKeyDown={musicToggle}
-          />
+          {music ? (
+            <input
+              type="checkbox"
+              name="TOGGLE-SWITCH-ON-OFF"
+              id=""
+              onClick={musicToggle}
+              onKeyDown={musicToggle}
+            />
+          ) : (
+            <input
+              type="checkbox"
+              name="TOGGLE-SWITCH-ON-OFF"
+              id=""
+              onClick={musicToggle}
+              onKeyDown={musicToggle}
+              checked
+            />
+          )}
           <div className={styles.pokemonName}>
             <h2>{pokemon?.name.fr}</h2>
           </div>
