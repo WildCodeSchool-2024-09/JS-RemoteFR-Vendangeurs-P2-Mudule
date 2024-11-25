@@ -143,7 +143,7 @@
   .bush_5 {
     grid-area: 1 / 9 / 2 / 10;
     width: 100%;
-    animation: bush 2s ease-in-out 45s 5;
+    animation: bush 2s ease-in-out 5 30s;
   }
   .bush_5:hover {
     animation: bush 2s infinite;
@@ -191,7 +191,7 @@
   .bush_16 {
     grid-area: 2 / 24 / 3 / 25;
     width: 100%;
-    animation: bush 2s ease-in-out 30s 5;
+    animation: bush 2s ease-in-out 5 45s;
   }
   .bush_16:hover {
     animation: bush 2s infinite;
@@ -211,7 +211,7 @@
   .bush_20 {
     grid-area: 2 / 48 / 3 / 49;
     width: 100%;
-    animation: bush 2s ease-in-out 15s 5;
+    animation: bush 2s ease-in-out 5 15s;
   }
   .bush_20:hover {
     animation: bush 2s infinite;
@@ -290,18 +290,10 @@
     z-index: 1;
   }
 
-  .lac_corner {
-    grid-area: 2 / 35 / 3 / 36;
+  .lac_vertical_4 {
+    grid-area: 2 / 35 / 2 / 36;
     height: 100%;
     z-index: 1;
-    margin: 0 0 0 -0.6rem;
-  }
-
-  .lac_horizontal {
-    grid-area: 2 / 34 / 3 / 35;
-    width: 100%;
-    z-index: 1;
-    margin: 2rem 0 0 -0.6rem;
   }
 
   .water {
@@ -311,10 +303,15 @@
   }
 
   .water_shadow {
-    grid-area: 1 / 34 / 3 / 35;
-    height: 95%;
-    width: 30%;
-    margin: 0 0 0 1.7rem;
+    grid-area: 1 / 34 / 3 / 36;
+    height: 100%;
+    width: 25%;
+    margin: auto;
+  }
+  .water_shadow_2 {
+    grid-area: 1 / 28 / 3 / 29;
+    height: 100%;
+    width: 45%;
   }
 }
 

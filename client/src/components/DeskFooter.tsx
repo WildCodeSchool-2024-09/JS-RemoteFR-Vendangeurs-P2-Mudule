@@ -2,8 +2,6 @@ import bush from "../../public/bush.webp";
 import fence_corner from "../../public/fence_corner.webp";
 import fence_horizontal from "../../public/fence_horizontal.webp";
 import fence_vertical from "../../public/fence_vertical.webp";
-import lac_corner from "../../public/lac_corner.webp";
-import lac_horizontal from "../../public/lac_horizontal.webp";
 import lac_vertical from "../../public/lac_vertical.webp";
 import road from "../../public/road.webp";
 import tree from "../../public/tree.webp";
@@ -62,7 +60,7 @@ export default function DeskFooter() {
     );
   }
 
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 4; i++) {
     lac_verticales.push(
       <img
         key={`lac_vertical_${i}`}
@@ -87,15 +85,14 @@ export default function DeskFooter() {
         src={fence_corner}
         alt="coin de barrière"
       />
-      <img className={styles.lac_corner} src={lac_corner} alt="coin du lac" />
-      <img
-        className={styles.lac_horizontal}
-        src={lac_horizontal}
-        alt="bord de lac"
-      />
       <img className={styles.water} src={water} alt="lac" />
       <img
         className={styles.water_shadow}
+        src={water_shadow}
+        alt="ombre de lac"
+      />
+      <img
+        className={styles.water_shadow_2}
         src={water_shadow}
         alt="ombre de lac"
       />
