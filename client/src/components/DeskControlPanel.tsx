@@ -8,11 +8,13 @@ interface DeskControlPanelProps {
   onIncrement: () => void;
   onDecrement: () => void;
   toggleShiny: () => void;
+  isShiny: boolean;
 }
 
 export default function DeskControlPanel({
   pokedex_id,
   error,
+  isShiny,
   onDecrement,
   onIncrement,
   toggleShiny,
@@ -33,17 +35,31 @@ export default function DeskControlPanel({
   return (
     <section className={styles.deskControlPanel}>
       <div className={styles.panelContainer}>
-        <button
-          type="button"
-          className={styles.shinyButton}
-          onClick={toggleShiny}
-          onKeyDown={(event) => handleKeyDown(event, toggleShiny)}
-          tabIndex={0}
-        >
-          <span className={styles.shinyButtonShadow}>
-            <hr className={styles.shinyButtonCenter} />
-          </span>
-        </button>
+        {!isShiny ? (
+          <button
+            type="button"
+            className={styles.shinyButton}
+            onClick={toggleShiny}
+            onKeyDown={(event) => handleKeyDown(event, toggleShiny)}
+            tabIndex={0}
+          >
+            <span className={styles.shinyButtonShadow}>
+              <hr className={styles.shinyButtonCenter} />
+            </span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={`${styles.shinyButton} ${styles.shinyActive}`}
+            onClick={toggleShiny}
+            onKeyDown={(event) => handleKeyDown(event, toggleShiny)}
+            tabIndex={0}
+          >
+            <span className={styles.shinyButtonShadow}>
+              <hr className={styles.shinyButtonCenter} />
+            </span>
+          </button>
+        )}
         <div className={styles.displayNumber}>
           <h3>{error ? "N°404" : `N°${pokedex_id}`}</h3>
         </div>

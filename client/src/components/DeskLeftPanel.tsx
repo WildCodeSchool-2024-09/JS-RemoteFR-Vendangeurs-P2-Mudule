@@ -62,6 +62,7 @@ const DeskLeftPanel: React.FC<DeskLeftPanelProps> = ({
           <DeskControlPanel
             pokedex_id={pokemon ? pokemon.pokedex_id : null}
             error={error}
+            isShiny={isShiny}
             onIncrement={onIncrement}
             onDecrement={onDecrement}
             toggleShiny={toggleShiny}
