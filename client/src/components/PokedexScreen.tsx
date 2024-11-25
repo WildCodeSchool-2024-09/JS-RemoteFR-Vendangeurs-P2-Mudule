@@ -191,13 +191,25 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 </span>
               )}
             </div>
-            <button
-              className={styles.boutonshiny}
-              type="button"
-              onClick={toggleShiny}
-            >
-              <hr />
-            </button>
+            {!isShiny ? (
+              <button
+                className={styles.boutonshiny}
+                type="button"
+                onClick={toggleShiny}
+              >
+                {" "}
+                <hr />
+              </button>
+            ) : (
+              <button
+                className={`${styles.boutonshiny} ${styles.shinyActive}`}
+                type="button"
+                onClick={toggleShiny}
+              >
+                <hr />
+              </button>
+            )}
+
             <div className={styles.barContainer}>
               <hr className={styles.bar1} />
               <hr className={styles.bar2} />
