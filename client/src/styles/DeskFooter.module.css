@@ -144,7 +144,7 @@
     grid-area: 1 / 9 / 2 / 10;
     width: 100%;
   }
-  .bush_5:hover {
+  .bush_5:active {
     animation: bush 2s infinite;
     filter: blur(0px);
   }
@@ -192,7 +192,7 @@
     grid-area: 2 / 24 / 3 / 25;
     width: 100%;
   }
-  .bush_16:hover {
+  .bush_16:active {
     animation: bush 2s infinite;
     filter: blur(0px);
   }
@@ -212,7 +212,7 @@
     grid-area: 2 / 48 / 3 / 49;
     width: 100%;
   }
-  .bush_20:hover {
+  .bush_20:active {
     animation: bush 2s infinite;
     filter: blur(0px);
   }
@@ -313,30 +313,66 @@
     height: 100%;
     width: 45%;
   }
+
+  .shadow_1 {
+    grid-area: 1 / 9 / 2 / 10;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: #000000 0px 0px 5px 2px;
+    margin: auto;
+    animation: slide-out-blurred-bottom 0.6s
+      cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
+  }
+
+  .shadow_2 {
+    grid-area: 2 / 24 / 3 / 25;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: #000000 0px 0px 5px 2px;
+    margin: auto;
+    animation: slide-out-blurred-top 0.6s cubic-bezier(0.95, 0.05, 0.795, 0.035)
+      both;
+  }
+
+  .shadow_3 {
+    grid-area: 2 / 48 / 3 / 49;
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: #000000 0px 0px 5px 2px;
+    margin: auto;
+    animation: slide-out-blurred-top 0.6s cubic-bezier(0.95, 0.05, 0.795, 0.035)
+      both;
+  }
 }
 
 .animationBush {
-  animation: bush 2s ease-in-out 5;
+  animation: bush 1s ease-in-out infinite;
   filter: blur(0px);
 }
 
 @keyframes bush {
-  44% {
+  40% {
     rotate: 0deg;
   }
-  46% {
+  45% {
     rotate: 10deg;
-  }
-  48% {
-    rotate: -10deg;
   }
   50% {
-    rotate: 10deg;
-  }
-  52% {
     rotate: -10deg;
   }
-  54% {
+  55% {
+    rotate: 10deg;
+  }
+  60% {
+    rotate: -10deg;
+  }
+  65% {
     rotate: 0deg;
   }
 }
@@ -344,5 +380,65 @@
 @media screen and (max-width: 980px) {
   .footer {
     display: none;
+  }
+}
+
+@keyframes slide-out-blurred-top {
+  0% {
+    scale: 0.1;
+  }
+  10% {
+    scale: 2;
+  }
+  20% {
+    scale: 0.5;
+  }
+  30% {
+    scale: 1.5;
+  }
+  40% {
+    scale: 1;
+  }
+  50% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 0%;
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) scaleY(2) scaleX(0.2);
+    transform-origin: 50% 0%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-blurred-bottom {
+  0% {
+    scale: 0.1;
+  }
+  10% {
+    scale: 2;
+  }
+  20% {
+    scale: 0.5;
+  }
+  30% {
+    scale: 1.5;
+  }
+  40% {
+    scale: 1;
+  }
+  50% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000px) scaleY(2) scaleX(0.2);
+    transform-origin: 50% 100%;
+    filter: blur(40px);
+    opacity: 0;
   }
 }
