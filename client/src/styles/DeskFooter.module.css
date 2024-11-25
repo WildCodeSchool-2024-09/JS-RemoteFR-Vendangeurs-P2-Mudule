@@ -146,6 +146,7 @@
   }
   .bush_5:hover {
     animation: bush 2s infinite;
+    filter: blur(0px);
   }
   .bush_6 {
     grid-area: 2 / 9 / 3 / 10;
@@ -193,6 +194,7 @@
   }
   .bush_16:hover {
     animation: bush 2s infinite;
+    filter: blur(0px);
   }
   .bush_17 {
     grid-area: 2 / 51 / 3 / 52;
@@ -212,6 +214,7 @@
   }
   .bush_20:hover {
     animation: bush 2s infinite;
+    filter: blur(0px);
   }
   .bush_21 {
     grid-area: 2 / 47 / 3 / 48;
@@ -314,6 +317,7 @@
 
 .animationBush {
   animation: bush 2s ease-in-out 5;
+  filter: blur(0px);
 }
 
 @keyframes bush {
