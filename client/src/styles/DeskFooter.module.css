@@ -143,7 +143,6 @@
   .bush_5 {
     grid-area: 1 / 9 / 2 / 10;
     width: 100%;
-    animation: bush 2s ease-in-out 5 30s;
   }
   .bush_5:hover {
     animation: bush 2s infinite;
@@ -191,7 +190,6 @@
   .bush_16 {
     grid-area: 2 / 24 / 3 / 25;
     width: 100%;
-    animation: bush 2s ease-in-out 5 45s;
   }
   .bush_16:hover {
     animation: bush 2s infinite;
@@ -211,7 +209,6 @@
   .bush_20 {
     grid-area: 2 / 48 / 3 / 49;
     width: 100%;
-    animation: bush 2s ease-in-out 5 15s;
   }
   .bush_20:hover {
     animation: bush 2s infinite;
@@ -313,6 +310,10 @@
     height: 100%;
     width: 45%;
   }
+}
+
+.animationBush {
+  animation: bush 2s ease-in-out 5;
 }
 
 @keyframes bush {
