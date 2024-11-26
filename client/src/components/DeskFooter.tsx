@@ -7,6 +7,7 @@ import lac_vertical from "../../public/lac_vertical.webp";
 import noarfang from "../../public/noarfang.webp";
 import road from "../../public/road.webp";
 import shadow from "../../public/shadow.webp";
+import pokemon_water from "../../public/shadow_water.webp";
 import tree from "../../public/tree.webp";
 import water from "../../public/water.webp";
 import water_shadow from "../../public/water_shadow.webp";
@@ -21,12 +22,21 @@ export default function DeskFooter() {
   const [shadow_3, setShadow_3] = useState<boolean>(false);
   const [vol, setVol] = useState<boolean>(false);
   const [volTimeoutActive, setVolTimeoutActive] = useState<boolean>(false);
+  const [waterInteval, setWaterInterval] = useState<boolean>(false);
+  const [isEscape, setIsEscape] = useState<boolean>(false);
 
   const trees = [];
   const bushes = [];
   const fences_verticales = [];
   const fences_horizontales = [];
   const lac_verticales = [];
+
+  const handleEscape = () => {
+    setIsEscape((prevEscape) => !prevEscape);
+    if (isEscape) {
+      setWaterInterval(false);
+    }
+  };
 
   const handleShadow_1 = () => {
     setShadow_1((prevShadow) => !prevShadow);
@@ -75,7 +85,7 @@ export default function DeskFooter() {
           setBush_3(false);
         }, 3000);
       }
-    }, 1000);
+    }, 6500);
 
     const volInterval = setInterval(() => {
       const result = getRandomDelay(15);
@@ -85,13 +95,26 @@ export default function DeskFooter() {
         setTimeout(() => {
           setVol(false);
           setVolTimeoutActive(false);
-        }, 60000);
+        }, 18000);
       }
-    }, 60000);
+    }, 20000);
+
+    const waterInterval = setInterval(() => {
+      const result = getRandomDelay(5);
+      if (result === 2) {
+        setWaterInterval(true);
+        setTimeout(() => {
+          setWaterInterval(false);
+        }, 10000);
+      }
+    }, 10000);
+    // 1 - résult === 2 ? waterInterval is true : rien
+    // 2 - waterInterval && click ? "animation de fin" : à la fin du temps d'apparatition "animation de fin";
 
     return () => {
       clearInterval(bushInterval);
       clearInterval(volInterval);
+      clearInterval(waterInterval);
     };
   }, [getRandomDelay, volTimeoutActive]);
 
@@ -249,6 +272,22 @@ export default function DeskFooter() {
           className={styles.noarfang}
           src={noarfang}
           alt="noarfang qui vol dans le ciel"
+        />
+      )}
+      {waterInteval && (
+        <img
+          onClick={handleEscape}
+          onKeyDown={handleEscape}
+          className={`${styles.pokemon_water} ${styles.animationWater}`}
+          src={pokemon_water}
+          alt="pokémon sous l'eau ?"
+        />
+      )}
+      {isEscape && (
+        <img
+          className={`${styles.pokemon_water} ${styles.escape}`}
+          src={pokemon_water}
+          alt="pokémon sous l'eau ?"
         />
       )}
     </footer>

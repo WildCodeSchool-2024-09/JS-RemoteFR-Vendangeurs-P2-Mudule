@@ -147,7 +147,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 <input
                   type="checkbox"
                   name="TOGGLE-SWITCH-ON-OFF"
-                  id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
                 />
@@ -162,7 +161,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 <input
                   type="checkbox"
                   name="TOGGLE-SWITCH-ON-OFF"
-                  id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
                   checked
