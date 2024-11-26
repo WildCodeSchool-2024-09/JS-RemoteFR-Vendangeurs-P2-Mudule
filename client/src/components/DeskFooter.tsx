@@ -319,24 +319,16 @@ export default function DeskFooter() {
         />
       )}
       {getText1 && (
-        <p className={`${styles.textEscape} ${styles.textPosition_1}`}>
-          Le pokémon s'est enfui !
-        </p>
+        <p className={styles.textPosition_1}>Le pokémon s'est enfui !</p>
       )}
       {getText2 && (
-        <p className={`${styles.textEscape} ${styles.textPosition_2}`}>
-          Le pokémon s'est enfui !
-        </p>
+        <p className={styles.textPosition_2}>Le pokémon s'est enfui !</p>
       )}
       {getText3 && (
-        <p className={`${styles.textEscape} ${styles.textPosition_3}`}>
-          Le pokémon s'est enfui !
-        </p>
+        <p className={styles.textPosition_3}>Le pokémon s'est enfui !</p>
       )}
       {getText4 && (
-        <p className={`${styles.textEscape} ${styles.textPosition_4}`}>
-          Le pokémon s'est enfui !
-        </p>
+        <p className={styles.textPosition_4}>Le pokémon s'est enfui !</p>
       )}
     </footer>
   );
