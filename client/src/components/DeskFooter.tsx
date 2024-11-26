@@ -179,7 +179,7 @@ export default function DeskFooter() {
     <footer className={styles.footer}>
       {trees}
       {bushes}
-      {bush_1 ? (
+      {bush_1 && !shadow_1 ? (
         <img
           key="bush_5"
           className={`${styles.bush_5} ${styles.animationBush}`}
@@ -192,7 +192,7 @@ export default function DeskFooter() {
         <img key="bush_5" className={styles.bush_5} src={bush} alt="buisson" />
       )}
 
-      {bush_2 ? (
+      {bush_2 && !shadow_2 ? (
         <img
           key="bush_16"
           className={`${styles.bush_16} ${styles.animationBush}`}
@@ -210,7 +210,7 @@ export default function DeskFooter() {
         />
       )}
 
-      {bush_3 ? (
+      {bush_3 && !shadow_3 ? (
         <img
           key="bush_20"
           className={`${styles.bush_20} ${styles.animationBush}`}
