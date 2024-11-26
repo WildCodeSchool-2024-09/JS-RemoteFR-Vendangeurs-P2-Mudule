@@ -33,9 +33,9 @@ export default function DeskFooter() {
 
   const handleEscape = () => {
     setIsEscape((prevEscape) => !prevEscape);
-    if (isEscape) {
+    setTimeout(() => {
       setWaterInterval(false);
-    }
+    }, 1000);
   };
 
   const handleShadow_1 = () => {
@@ -103,13 +103,15 @@ export default function DeskFooter() {
       const result = getRandomDelay(5);
       if (result === 2) {
         setWaterInterval(true);
+        setIsEscape(false);
+        setTimeout(() => {
+          setIsEscape(true);
+        }, 9000);
         setTimeout(() => {
           setWaterInterval(false);
         }, 10000);
       }
-    }, 10000);
-    // 1 - résult === 2 ? waterInterval is true : rien
-    // 2 - waterInterval && click ? "animation de fin" : à la fin du temps d'apparatition "animation de fin";
+    }, 20000);
 
     return () => {
       clearInterval(bushInterval);
@@ -274,7 +276,7 @@ export default function DeskFooter() {
           alt="noarfang qui vol dans le ciel"
         />
       )}
-      {waterInteval && (
+      {waterInteval && !isEscape && (
         <img
           onClick={handleEscape}
           onKeyDown={handleEscape}
@@ -283,9 +285,9 @@ export default function DeskFooter() {
           alt="pokémon sous l'eau ?"
         />
       )}
-      {isEscape && (
+      {waterInteval && isEscape && (
         <img
-          className={`${styles.pokemon_water} ${styles.escape}`}
+          className={`${styles.escape}`}
           src={pokemon_water}
           alt="pokémon sous l'eau ?"
         />
