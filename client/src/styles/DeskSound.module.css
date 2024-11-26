@@ -103,6 +103,13 @@
         height: 99%;
       }
 
+      .musicOff {
+        background-color: var(--color-sButton-quaternary);
+        span {
+          background-color: var(--color-sButton-secondary);
+        }
+      }
+
       .buttonShadowBark {
         grid-column: 4 / 5;
         width: 100%;

@@ -50,8 +50,7 @@
     width: 100%;
     background-color: var(--color-sButton-tertiary);
     padding: 0.5rem;
-    height: 22px;
-    width: 60px;
+    height: 30px;
     border-radius: 50px;
     margin: auto;
     box-shadow: rgba(45, 192, 0, 0.25) 0px 30px 60px -12px inset,
@@ -61,13 +60,14 @@
   input[type="checkbox"]::after {
     content: "";
     position: absolute;
-    top: 3px;
-    left: 3px;
-    height: 16px;
-    width: 16px;
+    top: 4px;
+    left: 4px;
+    height: 22px;
+    width: 22px;
     border-radius: 50%;
     background-color: var(--color-frame-image);
     transition: left 0.3s;
+    z-index: 2;
   }
 
   input[type="checkbox"]:checked {
@@ -76,7 +76,23 @@
   }
 
   input[type="checkbox"]:checked::after {
-    left: 41px;
+    left: 72%;
+  }
+
+  .volumeOff {
+    grid-area: 1 / 6 / 2 / 7;
+    z-index: 1;
+    margin: auto;
+    cursor: default;
+    font-size: 30px;
+  }
+
+  .volumeOn {
+    grid-area: 1 / 6 / 2 / 7;
+    z-index: 1;
+    margin: auto;
+    cursor: default;
+    font-size: 30px;
   }
 
   .screen {
@@ -90,6 +106,7 @@
       object-fit: contain;
       margin: auto;
     }
+
     .imageContainer {
       position: relative;
       width: 100%;
@@ -97,11 +114,23 @@
     }
 
     .pokemonImage {
-      position: relative;
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      height: 70%;
       z-index: 2;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      width: var(--s);
+      aspect-ratio: 1;
+      box-sizing: border-box;
+      padding-inline: calc(var(--s) / 10) 0;
+      object-fit: cover;
+      transform: perspective(350px) rotateY(calc(var(--_i, 1) * 10deg));
+      transition: .5s;
+    }
+
+    .pokemonImage:hover {
+      --_i: -1;
+      padding-inline: 0 calc(var(--s) / 10);
     }
 
     .backgroundImage {
@@ -228,6 +257,13 @@
     background-color: var(--color-button-tertiary);
   }
 
+  .shinyActive {
+    background-color: #a18f25;
+    hr {
+      background-color: #47411b;
+    }
+  }
+
   .barContainer {
     grid-area: 4 / 8 / 5 / 9;
     display: flex;
@@ -330,5 +366,42 @@
 @media screen and (max-width: 980px) {
   .mobileMusic {
     display: none;
+  }
+}
+
+.starsAnimation {
+  grid-area: 2 / 2 / 4 / 9;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  svg {
+    z-index: 1;
+    width: 50vw;
+    height: auto;
+  }
+
+  .sparkles path {
+    transform-origin: 50% 50%;
+    fill: #ffd904;
+    transform-box: fill-box;
+    animation: sparkle var(--duration) var(--delay) infinite ease-in-out;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(-1, 0);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
   }
 }
