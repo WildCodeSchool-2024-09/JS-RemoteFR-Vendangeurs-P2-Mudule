@@ -24,6 +24,7 @@ export default function DeskFooter() {
   const [volTimeoutActive, setVolTimeoutActive] = useState<boolean>(false);
   const [waterInteval, setWaterInterval] = useState<boolean>(false);
   const [isEscape, setIsEscape] = useState<boolean>(false);
+  const [getText, setGetText] = useState<boolean>(false);
 
   const trees = [];
   const bushes = [];
@@ -34,8 +35,12 @@ export default function DeskFooter() {
   const handleEscape = () => {
     setIsEscape((prevEscape) => !prevEscape);
     setTimeout(() => {
+      setGetText((prevGetText) => !prevGetText);
       setWaterInterval(false);
     }, 1000);
+    setTimeout(() => {
+      setGetText(false);
+    }, 2500);
   };
 
   const handleShadow_1 = () => {
@@ -291,6 +296,9 @@ export default function DeskFooter() {
           src={pokemon_water}
           alt="pokémon sous l'eau ?"
         />
+      )}
+      {getText && (
+        <p className={styles.pokemonWater}>Le pokémon s'est enfui !</p>
       )}
     </footer>
   );

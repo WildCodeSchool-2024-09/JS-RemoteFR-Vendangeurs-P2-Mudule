@@ -55,7 +55,7 @@ const DeskRightPanel: React.FC<DeskRightPanelProps> = ({
               ) : (
                 <>
                   <h3>{description.name?.fr}</h3>
-                  <p>Pokemon de type :</p>
+                  <p>Pokémon de type :</p>
                   <p> - {description.types[0]?.name}</p>
                   {description.types[1]?.name && (
                     <p> - {description.types[1].name}</p>

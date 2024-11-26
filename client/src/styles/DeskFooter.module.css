@@ -379,6 +379,17 @@
     border-radius: 50%;
     animation: escape 1s ease-in-out;
   }
+
+  .pokemonWater {
+    grid-area: 1 / 31 / 3 / 36;
+    font-size: 15px;
+    z-index: 2;
+    text-align: center;
+    background-color: var(--font-color-primary);
+    border-radius: 10px;
+    border: solid 2px var(--color-border);
+    margin: auto;
+  }
 }
 
 .animationBush {
