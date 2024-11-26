@@ -97,12 +97,8 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
               Désolé je ne trouve pas ce Pokémon !
             </p>
           </figure>
-          <figure className={styles.type1}>
-            <img src="#" alt="diode" />
-          </figure>
-          <figure className={styles.type2}>
-            <img src="#" alt="diode" />
-          </figure>
+          <figure className={styles.type1} />
+          <figure className={styles.type2} />
           <button type="button">
             <hr />o
           </button>
