@@ -380,8 +380,7 @@
     animation: escape 1s ease-in-out;
   }
 
-  .pokemonWater {
-    grid-area: 1 / 31 / 3 / 36;
+  .textEscape {
     font-size: 15px;
     z-index: 2;
     text-align: center;
@@ -389,6 +388,22 @@
     border-radius: 10px;
     border: solid 2px var(--color-border);
     margin: auto;
+  }
+
+  .textPosition_1 {
+    grid-area: 1 / 31 / 3 / 36;
+  }
+
+  .textPosition_2 {
+    grid-area: 1 / 10 / 3 / 15;
+  }
+
+  .textPosition_3 {
+    grid-area: 1 / 19 / 3 / 24;
+  }
+
+  .textPosition_4 {
+    grid-area: 1 / 43 / 3 / 48;
   }
 }
 

@@ -24,7 +24,10 @@ export default function DeskFooter() {
   const [volTimeoutActive, setVolTimeoutActive] = useState<boolean>(false);
   const [waterInteval, setWaterInterval] = useState<boolean>(false);
   const [isEscape, setIsEscape] = useState<boolean>(false);
-  const [getText, setGetText] = useState<boolean>(false);
+  const [getText1, setGetText1] = useState<boolean>(false);
+  const [getText2, setGetText2] = useState<boolean>(false);
+  const [getText3, setGetText3] = useState<boolean>(false);
+  const [getText4, setGetText4] = useState<boolean>(false);
 
   const trees = [];
   const bushes = [];
@@ -35,11 +38,11 @@ export default function DeskFooter() {
   const handleEscape = () => {
     setIsEscape((prevEscape) => !prevEscape);
     setTimeout(() => {
-      setGetText((prevGetText) => !prevGetText);
+      setGetText1((prevGetText) => !prevGetText);
       setWaterInterval(false);
     }, 1000);
     setTimeout(() => {
-      setGetText(false);
+      setGetText1(false);
     }, 2500);
   };
 
@@ -48,6 +51,12 @@ export default function DeskFooter() {
     if (shadow_1) {
       setBush_1(false);
     }
+    setTimeout(() => {
+      setGetText2((prevGetText2) => !prevGetText2);
+    }, 700);
+    setTimeout(() => {
+      setGetText2(false);
+    }, 2500);
   };
 
   const handleShadow_2 = () => {
@@ -55,6 +64,12 @@ export default function DeskFooter() {
     if (shadow_2) {
       setBush_2(false);
     }
+    setTimeout(() => {
+      setGetText3((prevGetText3) => !prevGetText3);
+    }, 700);
+    setTimeout(() => {
+      setGetText3(false);
+    }, 2500);
   };
 
   const handleShadow_3 = () => {
@@ -62,6 +77,12 @@ export default function DeskFooter() {
     if (shadow_3) {
       setBush_3(false);
     }
+    setTimeout(() => {
+      setGetText4((prevGetText4) => !prevGetText4);
+    }, 700);
+    setTimeout(() => {
+      setGetText4(false);
+    }, 2500);
   };
 
   const getRandomDelay = useCallback(
@@ -90,7 +111,7 @@ export default function DeskFooter() {
           setBush_3(false);
         }, 3000);
       }
-    }, 6500);
+    }, 5000);
 
     const volInterval = setInterval(() => {
       const result = getRandomDelay(15);
@@ -105,7 +126,7 @@ export default function DeskFooter() {
     }, 20000);
 
     const waterInterval = setInterval(() => {
-      const result = getRandomDelay(5);
+      const result = getRandomDelay(4);
       if (result === 2) {
         setWaterInterval(true);
         setIsEscape(false);
@@ -297,8 +318,25 @@ export default function DeskFooter() {
           alt="pokémon sous l'eau ?"
         />
       )}
-      {getText && (
-        <p className={styles.pokemonWater}>Le pokémon s'est enfui !</p>
+      {getText1 && (
+        <p className={`${styles.textEscape} ${styles.textPosition_1}`}>
+          Le pokémon s'est enfui !
+        </p>
+      )}
+      {getText2 && (
+        <p className={`${styles.textEscape} ${styles.textPosition_2}`}>
+          Le pokémon s'est enfui !
+        </p>
+      )}
+      {getText3 && (
+        <p className={`${styles.textEscape} ${styles.textPosition_3}`}>
+          Le pokémon s'est enfui !
+        </p>
+      )}
+      {getText4 && (
+        <p className={`${styles.textEscape} ${styles.textPosition_4}`}>
+          Le pokémon s'est enfui !
+        </p>
       )}
     </footer>
   );
