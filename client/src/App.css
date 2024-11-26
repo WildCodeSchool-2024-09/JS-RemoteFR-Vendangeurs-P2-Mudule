@@ -15,7 +15,7 @@ body {
 }
 
 :root {
-  --font-color-primary: whitesmoke;
+  --font-color-primary: rgb(226, 226, 226);
   --font-color-secondary: #193c1e;
 
   --font-color-tertiary: #193c1e7a;

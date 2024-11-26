@@ -21,41 +21,49 @@
     height: 70px;
     position: absolute;
     right: 20%;
-    animation: Ho_oh 1.5s infinite linear;
+    animation: Ho_oh 1.4s infinite linear;
     z-index: 2000;
   }
 
-  .cloudOne {
+  .cloud_1 {
     height: 50px;
     position: absolute;
-    animation: cloud 19s infinite linear;
+    animation: cloud_1 19s infinite linear;
   }
 
-  .cloudTwo {
+  .cloud_2 {
     height: 50px;
     top: 2.25rem;
     position: absolute;
-    animation: cloudTwo 21s infinite linear;
+    animation: cloud_2 22.21s infinite linear;
   }
 
-  .cloudThree {
+  .cloud_3 {
     height: 50px;
     top: -0.9rem;
     position: absolute;
-    animation: cloudThree 30s infinite linear;
+    animation: cloud_3 25.98s infinite linear;
   }
 
-  .cloudFour {
+  .cloud_4 {
     height: 50px;
     top: 1rem;
     position: absolute;
-    animation: cloudFour 25s infinite linear;
+    animation: cloud_4 28.82s infinite linear;
   }
 
-  .cloudFive {
+  .cloud_5 {
     height: 50px;
+    top: -0.9rem;
     position: absolute;
-    animation: cloudFive 35s infinite linear;
+    animation: cloud_5 31.67s infinite linear;
+  }
+
+  .cloud_6 {
+    height: 50px;
+    top: 1.5rem;
+    position: absolute;
+    animation: cloud_6 34.51s infinite linear;
   }
 
   .sky {
@@ -108,7 +116,7 @@
   }
 }
 
-@keyframes cloud {
+@keyframes cloud_1 {
   0% {
     left: -3%;
   }
@@ -117,36 +125,45 @@
   }
 }
 
-@keyframes cloudTwo {
+@keyframes cloud_2 {
   0% {
-    left: -10%;
+    left: -15%;
   }
   100% {
     left: 100%;
   }
 }
 
-@keyframes cloudThree {
+@keyframes cloud_3 {
   0% {
-    left: -45%;
+    left: -30%;
   }
   100% {
     left: 100%;
   }
 }
 
-@keyframes cloudFour {
+@keyframes cloud_4 {
   0% {
-    left: -25%;
+    left: -40%;
   }
   100% {
     left: 100%;
   }
 }
 
-@keyframes cloudFive {
+@keyframes cloud_5 {
   0% {
-    left: -70%;
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes cloud_6 {
+  0% {
+    left: -60%;
   }
   100% {
     left: 100%;

@@ -48,6 +48,8 @@
       text-align: center;
       z-index: 0;
       cursor: default;
+      text-shadow:
+        #999999 1px 1px 0, -3px 3px 7px #383838, #999999 1px 1px 0, 3px 3px 7px #383838, #999999 1px 1px 0, 3px -3px 7px #383838, #999999 1px 1px 0, -3px -3px 7px #383838;
     }
   }
 
