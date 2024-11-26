@@ -408,17 +408,19 @@
 
   .dresseurUp {
     height: 50px;
-    position: relative;
+    position: absolute;
     z-index: 1;
+    top: 100%;
     grid-area: 1 / 19 / 3 / 24;
     animation: dresseurUp 5s linear;
   }
 
   .dresseurDown {
     height: 50px;
-    position: relative;
+    position: absolute;
     z-index: 1;
     grid-area: 1 / 38 / 3 / 39;
+    top: -100%;
     animation: dresseurDown 5s linear;
   }
 }
