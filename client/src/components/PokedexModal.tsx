@@ -34,9 +34,9 @@ export default function PokedexModal() {
                 <p> - Pokémons : API Tyradex - </p>
                 <p> - Background des pokémons : Freepics - </p>
                 <p> - Types : API Tyradex / Foxrim/Flavien Rousseau - </p>
-                <p> - Musique - </p>
+                <h3> - Musique - </h3>
                 <p> - Thème principal : Pokémon 2ème génération 1999 - </p>
-                <p> - Sound Effect - </p>
+                <h3> - Sound Effect - </h3>
                 <p>
                   {" "}
                   - Ouverture du Pokédex : Ouverture Pokéball Sound Animé -{" "}
