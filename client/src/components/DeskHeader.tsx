@@ -29,6 +29,7 @@ export default function DeskHeader() {
         <img src={title} alt="titre Pokédule" />
       </div>
       <img
+        key="Ho-oh"
         className={styles.Ho_oh}
         src={Ho_oh}
         alt="Ho-oh vole dans le ciel !"

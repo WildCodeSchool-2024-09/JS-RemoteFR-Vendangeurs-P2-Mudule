@@ -405,11 +405,45 @@
   .textPosition_4 {
     grid-area: 1 / 43 / 3 / 48;
   }
+
+  .dresseurUp {
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    grid-area: 1 / 19 / 3 / 24;
+    animation: dresseurUp 5s linear;
+  }
+
+  .dresseurDown {
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    grid-area: 1 / 38 / 3 / 39;
+    animation: dresseurDown 5s linear;
+  }
 }
 
 .animationBush {
   animation: bush 1s ease-in-out infinite;
   filter: blur(0px);
+}
+
+@keyframes dresseurUp {
+  0% {
+    bottom: -200%;
+  }
+  100% {
+    bottom: 200%;
+  }
+}
+
+@keyframes dresseurDown {
+  0% {
+    bottom: 200%;
+  }
+  100% {
+    bottom: -200%;
+  }
 }
 
 @keyframes escape {

@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import bush from "../../public/bush.webp";
+import dresseurDown from "../../public/dresseur_down.gif";
+import dresseurUp from "../../public/dresseur_up.gif";
 import fence_corner from "../../public/fence_corner.webp";
 import fence_horizontal from "../../public/fence_horizontal.webp";
 import fence_vertical from "../../public/fence_vertical.webp";
@@ -14,9 +16,9 @@ import water_shadow from "../../public/water_shadow.webp";
 import styles from "../styles/DeskFooter.module.css";
 
 export default function DeskFooter() {
-  const [bush_1, setBush_1] = useState<boolean>(false);
-  const [bush_2, setBush_2] = useState<boolean>(false);
-  const [bush_3, setBush_3] = useState<boolean>(false);
+  const [bush1, setBush1] = useState<boolean>(false);
+  const [bush2, setBush2] = useState<boolean>(false);
+  const [bush3, setBush3] = useState<boolean>(false);
   const [shadow_1, setShadow_1] = useState<boolean>(false);
   const [shadow_2, setShadow_2] = useState<boolean>(false);
   const [shadow_3, setShadow_3] = useState<boolean>(false);
@@ -28,6 +30,8 @@ export default function DeskFooter() {
   const [getText2, setGetText2] = useState<boolean>(false);
   const [getText3, setGetText3] = useState<boolean>(false);
   const [getText4, setGetText4] = useState<boolean>(false);
+  const [getDresseurUp, setGetDresseurUp] = useState<boolean>(false);
+  const [getDresseurDown, setGetDresseurDown] = useState<boolean>(false);
 
   const trees = [];
   const bushes = [];
@@ -49,7 +53,7 @@ export default function DeskFooter() {
   const handleShadow_1 = () => {
     setShadow_1((prevShadow) => !prevShadow);
     if (shadow_1) {
-      setBush_1(false);
+      setBush1(false);
     }
     setTimeout(() => {
       setGetText2((prevGetText2) => !prevGetText2);
@@ -62,7 +66,7 @@ export default function DeskFooter() {
   const handleShadow_2 = () => {
     setShadow_2((prevShadow) => !prevShadow);
     if (shadow_2) {
-      setBush_2(false);
+      setBush2(false);
     }
     setTimeout(() => {
       setGetText3((prevGetText3) => !prevGetText3);
@@ -75,7 +79,7 @@ export default function DeskFooter() {
   const handleShadow_3 = () => {
     setShadow_3((prevShadow) => !prevShadow);
     if (shadow_3) {
-      setBush_3(false);
+      setBush3(false);
     }
     setTimeout(() => {
       setGetText4((prevGetText4) => !prevGetText4);
@@ -94,22 +98,34 @@ export default function DeskFooter() {
     const bushInterval = setInterval(() => {
       const result = getRandomDelay(15);
       if (result === 5) {
-        setBush_1(true);
+        setBush1(true);
         setTimeout(() => {
-          setBush_1(false);
+          setBush1(false);
         }, 3000);
       }
       if (result === 10) {
-        setBush_2(true);
+        setBush2(true);
         setTimeout(() => {
-          setBush_2(false);
+          setBush2(false);
         }, 3000);
       }
       if (result === 1) {
-        setBush_3(true);
+        setBush3(true);
         setTimeout(() => {
-          setBush_3(false);
+          setBush3(false);
         }, 3000);
+      }
+      if (result === 7) {
+        setGetDresseurUp(true);
+        setTimeout(() => {
+          setGetDresseurUp(false);
+        }, 5000);
+      }
+      if (result === 6) {
+        setGetDresseurDown(true);
+        setTimeout(() => {
+          setGetDresseurDown(false);
+        }, 5000);
       }
     }, 5000);
 
@@ -205,7 +221,7 @@ export default function DeskFooter() {
     <footer className={styles.footer}>
       {trees}
       {bushes}
-      {bush_1 && !shadow_1 ? (
+      {bush1 && !shadow_1 ? (
         <img
           key="bush_5"
           className={`${styles.bush_5} ${styles.animationBush}`}
@@ -218,7 +234,7 @@ export default function DeskFooter() {
         <img key="bush_5" className={styles.bush_5} src={bush} alt="buisson" />
       )}
 
-      {bush_2 && !shadow_2 ? (
+      {bush2 && !shadow_2 ? (
         <img
           key="bush_16"
           className={`${styles.bush_16} ${styles.animationBush}`}
@@ -236,7 +252,7 @@ export default function DeskFooter() {
         />
       )}
 
-      {bush_3 && !shadow_3 ? (
+      {bush3 && !shadow_3 ? (
         <img
           key="bush_20"
           className={`${styles.bush_20} ${styles.animationBush}`}
@@ -255,6 +271,7 @@ export default function DeskFooter() {
       )}
       {shadow_1 && (
         <img
+          key="shadow_1"
           className={styles.shadow_1}
           src={shadow}
           alt="ombre de pokémon en fuite"
@@ -262,6 +279,7 @@ export default function DeskFooter() {
       )}
       {shadow_2 && (
         <img
+          key="shadow_2"
           className={styles.shadow_2}
           src={shadow}
           alt="ombre de pokémon en fuite"
@@ -269,6 +287,7 @@ export default function DeskFooter() {
       )}
       {shadow_3 && (
         <img
+          key="shadow_3"
           className={styles.shadow_3}
           src={shadow}
           alt="ombre de pokémon en fuite"
@@ -277,26 +296,40 @@ export default function DeskFooter() {
       {fences_verticales}
       {fences_horizontales}
       {lac_verticales}
-      <img className={styles.road_1} src={road} alt="chemin de terre" />
-      <img className={styles.road_2} src={road} alt="chemin de terre" />
       <img
+        key="road_1"
+        className={styles.road_1}
+        src={road}
+        alt="chemin de terre"
+      />
+      <img
+        key="road_2"
+        className={styles.road_2}
+        src={road}
+        alt="chemin de terre"
+      />
+      <img
+        key="fence_1"
         className={styles.fence_corner}
         src={fence_corner}
         alt="coin de barrière"
       />
-      <img className={styles.water} src={water} alt="lac" />
+      <img key="water" className={styles.water} src={water} alt="lac" />
       <img
+        key="waterShadow_1"
         className={styles.water_shadow}
         src={water_shadow}
         alt="ombre de lac"
       />
       <img
+        key="waterShadow_2"
         className={styles.water_shadow_2}
         src={water_shadow}
         alt="ombre de lac"
       />
       {vol && (
         <img
+          key="noarfang"
           className={styles.noarfang}
           src={noarfang}
           alt="noarfang qui vol dans le ciel"
@@ -304,6 +337,7 @@ export default function DeskFooter() {
       )}
       {waterInteval && !isEscape && (
         <img
+          key="pokemonEnderWater"
           onClick={handleEscape}
           onKeyDown={handleEscape}
           className={`${styles.pokemon_water} ${styles.animationWater}`}
@@ -313,6 +347,7 @@ export default function DeskFooter() {
       )}
       {waterInteval && isEscape && (
         <img
+          key="escape"
           className={`${styles.escape}`}
           src={pokemon_water}
           alt="pokémon sous l'eau ?"
@@ -329,6 +364,20 @@ export default function DeskFooter() {
       )}
       {getText4 && (
         <p className={styles.textPosition_4}>Le pokémon s'est enfui !</p>
+      )}
+      {getDresseurUp && (
+        <img
+          className={styles.dresseurUp}
+          src={dresseurUp}
+          alt="Un dresseur pokémon se balade"
+        />
+      )}
+      {getDresseurDown && (
+        <img
+          className={styles.dresseurDown}
+          src={dresseurDown}
+          alt="Un dresseur pokémon se balade"
+        />
       )}
     </footer>
   );
