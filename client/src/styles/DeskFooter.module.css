@@ -421,7 +421,7 @@
     z-index: 1;
     grid-area: 1 / 38 / 3 / 39;
     top: -100%;
-    animation: dresseurDown 5s linear;
+    animation: dresseurDown 5s linear infinite;
   }
 }
 
@@ -432,19 +432,19 @@
 
 @keyframes dresseurUp {
   0% {
-    bottom: -200%;
+    top: 200%;
   }
   100% {
-    bottom: 200%;
+    top: -100%;
   }
 }
 
 @keyframes dresseurDown {
   0% {
-    bottom: 200%;
+    top: -100%;
   }
   100% {
-    bottom: -200%;
+    top: 200%;
   }
 }
 
