@@ -432,19 +432,19 @@
 
 @keyframes dresseurUp {
   0% {
-    bottom: -200%;
+    top: 200%;
   }
   100% {
-    bottom: 200%;
+    top: -100%;
   }
 }
 
 @keyframes dresseurDown {
   0% {
-    bottom: 200%;
+    top: -100%;
   }
   100% {
-    bottom: -200%;
+    top: 200%;
   }
 }
 

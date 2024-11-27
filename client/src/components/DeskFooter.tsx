@@ -115,19 +115,23 @@ export default function DeskFooter() {
           setBush3(false);
         }, 3000);
       }
-      if (result === 7) {
+    }, 5000);
+
+    const dresseurInterval = setInterval(() => {
+      const result = getRandomDelay(5);
+      if (result === 1) {
         setGetDresseurUp(true);
         setTimeout(() => {
           setGetDresseurUp(false);
         }, 5000);
       }
-      if (result === 6) {
+      if (result === 4) {
         setGetDresseurDown(true);
         setTimeout(() => {
           setGetDresseurDown(false);
         }, 5000);
       }
-    }, 5000);
+    }, 6000);
 
     const volInterval = setInterval(() => {
       const result = getRandomDelay(15);
@@ -156,6 +160,7 @@ export default function DeskFooter() {
     }, 20000);
 
     return () => {
+      clearInterval(dresseurInterval);
       clearInterval(bushInterval);
       clearInterval(volInterval);
       clearInterval(waterInterval);
