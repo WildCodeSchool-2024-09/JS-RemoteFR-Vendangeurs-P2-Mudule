@@ -59,7 +59,7 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
   error,
   types,
 }) => {
-  const { musicToggle } = useMusic();
+  const { musicToggle, isChecked, setIsChecked } = useMusic();
   const [isShiny, setIsShiny] = useState(false);
   const musicContext = useMusic();
   const music = musicContext?.music;
@@ -81,6 +81,7 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
               id=""
               onClick={musicToggle}
               onKeyDown={musicToggle}
+              defaultChecked={isChecked}
             />
           ) : (
             <input
@@ -89,7 +90,8 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
               id=""
               onClick={musicToggle}
               onKeyDown={musicToggle}
-              checked
+              checked={isChecked}
+              onChange={(e) => setIsChecked(e.target.checked)}
             />
           )}
           <figure className={styles.screen}>
@@ -150,6 +152,7 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                   id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
+                  defaultChecked={isChecked}
                 />
                 <span
                   className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
@@ -165,7 +168,8 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                   id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
-                  checked
+                  checked={isChecked}
+                  onChange={(e) => setIsChecked(e.target.checked)}
                 />
                 <span
                   className={`${"material-symbols-outlined"} ${styles.volumeOff}`}

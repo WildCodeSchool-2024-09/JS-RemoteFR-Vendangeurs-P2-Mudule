@@ -8,7 +8,12 @@ export default function DeskHeader() {
 
   for (let i = 1; i <= 6; i++) {
     clouds.push(
-      <img src={cloudOne} className={styles[`cloud_${i}`]} alt="nuage" />,
+      <img
+        key={`cloud_${i}`}
+        src={cloudOne}
+        className={styles[`cloud_${i}`]}
+        alt="nuage"
+      />,
     );
   }
 
