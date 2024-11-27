@@ -24,7 +24,7 @@ export default function PokedexSearchBar({ onSearch }: PokedexSearchBarProps) {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Trouvez votre Pokemon . . ."
+            placeholder="Trouvez votre Pokémon . . ."
             value={searchTerm}
             onChange={handleInputChange}
           />

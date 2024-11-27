@@ -61,7 +61,7 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
       <section className={styles.pokedexDetails}>
         <div className={styles.billboard}>
           <h3>{displayDescription.name?.fr}</h3>
-          <p>Pokemon de type :</p>
+          <p>Pokémon de type :</p>
           {displayDescription.types.length > 0 ? (
             displayDescription.types.map((type) => (
               <p key={type.name}> - {type.name}</p>

@@ -75,36 +75,44 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
           <hr className={styles.diodeRed1} />
           <div className={styles.pokemonName} />
           {music ? (
-            <input
-              type="checkbox"
-              name="TOGGLE-SWITCH-ON-OFF"
-              id=""
-              onClick={musicToggle}
-              onKeyDown={musicToggle}
-              defaultChecked={isChecked}
-            />
+            <>
+              <input
+                type="checkbox"
+                name="TOGGLE-SWITCH-ON-OFF"
+                onClick={musicToggle}
+                onKeyDown={musicToggle}
+                defaultChecked={isChecked}
+              />
+              <span
+                className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
+              >
+                volume_up
+              </span>
+            </>
           ) : (
-            <input
-              type="checkbox"
-              name="TOGGLE-SWITCH-ON-OFF"
-              id=""
-              onClick={musicToggle}
-              onKeyDown={musicToggle}
-              checked={isChecked}
-              onChange={(e) => setIsChecked(e.target.checked)}
-            />
+            <>
+              <input
+                type="checkbox"
+                name="TOGGLE-SWITCH-ON-OFF"
+                onClick={musicToggle}
+                onKeyDown={musicToggle}
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+              />
+              <span
+                className={`${"material-symbols-outlined"} ${styles.volumeOff}`}
+              >
+                volume_off
+              </span>
+            </>
           )}
           <figure className={styles.screen}>
             <p className={styles.errorMessage}>
               Désolé je ne trouve pas ce Pokémon !
             </p>
           </figure>
-          <figure className={styles.type1}>
-            <img src="#" alt="diode" />
-          </figure>
-          <figure className={styles.type2}>
-            <img src="#" alt="diode" />
-          </figure>
+          <figure className={styles.type1} />
+          <figure className={styles.type2} />
           <button type="button">
             <hr />o
           </button>
@@ -149,7 +157,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 <input
                   type="checkbox"
                   name="TOGGLE-SWITCH-ON-OFF"
-                  id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
                   defaultChecked={isChecked}
@@ -165,7 +172,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 <input
                   type="checkbox"
                   name="TOGGLE-SWITCH-ON-OFF"
-                  id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
                   checked={isChecked}
