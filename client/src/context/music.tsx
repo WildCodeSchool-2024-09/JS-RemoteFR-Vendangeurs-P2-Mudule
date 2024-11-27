@@ -69,7 +69,14 @@ function MusicProvider({ children }: { children: ReactNode }) {
 
   return (
     <musicContext.Provider
-      value={{ music, setMusic, musicRef, musicOn, musicOff, musicToggle }}
+      value={{
+        music,
+        setMusic,
+        musicRef,
+        musicOn,
+        musicOff,
+        musicToggle,
+      }}
     >
       {children}
       <audio ref={musicRef} src="/Gen2_intro.mp3" autoPlay>
