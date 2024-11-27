@@ -421,7 +421,7 @@
     z-index: 1;
     grid-area: 1 / 38 / 3 / 39;
     top: -100%;
-    animation: dresseurDown 5s linear infinite;
+    animation: dresseurDown 5s linear;
   }
 }
 
