@@ -88,6 +88,7 @@ const DeskRightPanel: React.FC<DeskRightPanelProps> = ({
             </div>
             <DeskType types={description?.types || []} />
             <DeskSound
+              pokedex_id={description?.pokedex_id ?? 1}
               pokemonImage={description?.sprites.regular || ""}
               error={error}
             />

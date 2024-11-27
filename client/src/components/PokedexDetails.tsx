@@ -1,4 +1,5 @@
 import type React from "react";
+import { type SetStateAction, useEffect, useRef, useState } from "react";
 import styles from "../styles/PokedexDetails.module.css";
 
 interface Description {
@@ -23,11 +24,21 @@ interface Description {
 interface PokedexDetailsProps {
   description: Description | null;
   error: string | null;
+  pokedex_id: number;
+}
+
+interface PokemonSound {
+  latest: SetStateAction<string | null>;
+  cries: {
+    latest: string;
+    legacy: string;
+  };
 }
 
 const PokedexDetails: React.FC<PokedexDetailsProps> = ({
   description,
   error,
+  pokedex_id,
 }) => {
   if (!description) {
     return (
@@ -47,6 +58,32 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
     );
   }
 
+  const [pokemonSound, setPokemonSound] = useState<string | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const getPokemonSound = async () => {
+      try {
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokedex_id}/`,
+        );
+        const data = await response.json();
+        const pokemonSoundData: PokemonSound = data.cries;
+        setPokemonSound(pokemonSoundData.latest);
+      } catch (error) {
+        console.error("Error fetching Pokémon sound:", error);
+      }
+    };
+
+    getPokemonSound();
+  }, [pokedex_id]);
+
+  const handlePlaySound = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
   const emptyDescription = {
     ...description,
     types: [],
@@ -59,6 +96,11 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
   return (
     <>
       <section className={styles.pokedexDetails}>
+        {pokemonSound && (
+          <audio ref={audioRef} src={pokemonSound}>
+            <track kind="captions" srcLang="en" label="English captions" />
+          </audio>
+        )}
         <div className={styles.billboard}>
           <h3>{displayDescription.name?.fr}</h3>
           <p>Pokémon de type :</p>
@@ -104,7 +146,11 @@ const PokedexDetails: React.FC<PokedexDetailsProps> = ({
             N°{displayDescription.pokedex_id}{" "}
           </h3>
         </div>
-        <button type="button">
+        <button
+          type="button"
+          onClick={handlePlaySound}
+          onKeyDown={handlePlaySound}
+        >
           <figure>
             {error ? (
               <p>désolé</p>
