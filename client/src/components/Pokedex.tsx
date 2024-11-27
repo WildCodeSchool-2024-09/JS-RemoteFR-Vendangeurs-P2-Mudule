@@ -163,7 +163,11 @@ export default function Pokedex() {
           onDecrement={decrementPokemonIndex}
           onIncrement={incrementPokemonIndex}
         />
-        <PokedexDetails description={pokemon} error={error} />
+        <PokedexDetails
+          description={pokemon}
+          error={error}
+          pokedex_id={pokemon?.pokedex_id ?? 1}
+        />
         <div className={styles.borderIternBottom}>
           <hr className={styles.hrTop} />
           <hr className={styles.hrBottom} />

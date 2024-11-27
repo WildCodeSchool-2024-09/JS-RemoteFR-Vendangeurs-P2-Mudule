@@ -25,6 +25,7 @@ export default function PokedexModal() {
                 </p>
                 <h3> - API's - </h3>
                 <p> - Tyradex : Créé par Yarkis & Ashzuu - </p>
+                <p> - Poké : Paul Hallett - </p>
                 <h3> - Police d'écriture - </h3>
                 <p> - Monocraft : Créé par IdreesInc - </p>
                 <h3> - Images - </h3>
