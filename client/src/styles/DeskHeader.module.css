@@ -25,6 +25,20 @@
     z-index: 2000;
   }
 
+  p {
+    font-size: 15px;
+    z-index: 2;
+    text-align: center;
+    background-color: var(--font-color-primary);
+    border-radius: 10px;
+    border: solid 2px var(--color-border);
+    width: 7rem;
+    position: absolute;
+    right: 14%;
+    top: 10%;
+    z-index: 2000;
+  }
+
   .cloud_1 {
     height: 50px;
     position: absolute;

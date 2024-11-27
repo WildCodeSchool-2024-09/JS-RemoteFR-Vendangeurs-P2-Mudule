@@ -22,6 +22,7 @@
     border: solid 4px var(--color-menu-quaternary);
     background-color: var(--color-menu-secondary);
     z-index: 5;
+    cursor: pointer;
 
     overflow: hidden;
     animation: menu 4s ease-in-out infinite;

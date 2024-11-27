@@ -26,7 +26,7 @@ export default function DeskPokedexSearchBar({
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Trouvez votre Pokemon . . ."
+            placeholder="Trouvez votre Pokémon . . ."
             value={searchTerm}
             onChange={handleInputChange}
           />

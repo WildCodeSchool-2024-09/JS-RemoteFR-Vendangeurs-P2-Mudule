@@ -75,34 +75,42 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
           <hr className={styles.diodeRed1} />
           <div className={styles.pokemonName} />
           {music ? (
-            <input
-              type="checkbox"
-              name="TOGGLE-SWITCH-ON-OFF"
-              id=""
-              onClick={musicToggle}
-              onKeyDown={musicToggle}
-            />
+            <>
+              <input
+                type="checkbox"
+                name="TOGGLE-SWITCH-ON-OFF"
+                onClick={musicToggle}
+                onKeyDown={musicToggle}
+              />
+              <span
+                className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
+              >
+                volume_up
+              </span>
+            </>
           ) : (
-            <input
-              type="checkbox"
-              name="TOGGLE-SWITCH-ON-OFF"
-              id=""
-              onClick={musicToggle}
-              onKeyDown={musicToggle}
-              checked
-            />
+            <>
+              <input
+                type="checkbox"
+                name="TOGGLE-SWITCH-ON-OFF"
+                onClick={musicToggle}
+                onKeyDown={musicToggle}
+                checked
+              />
+              <span
+                className={`${"material-symbols-outlined"} ${styles.volumeOff}`}
+              >
+                volume_off
+              </span>
+            </>
           )}
           <figure className={styles.screen}>
             <p className={styles.errorMessage}>
               Désolé je ne trouve pas ce Pokémon !
             </p>
           </figure>
-          <figure className={styles.type1}>
-            <img src="#" alt="diode" />
-          </figure>
-          <figure className={styles.type2}>
-            <img src="#" alt="diode" />
-          </figure>
+          <figure className={styles.type1} />
+          <figure className={styles.type2} />
           <button type="button">
             <hr />o
           </button>
@@ -147,7 +155,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 <input
                   type="checkbox"
                   name="TOGGLE-SWITCH-ON-OFF"
-                  id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
                 />
@@ -162,7 +169,6 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
                 <input
                   type="checkbox"
                   name="TOGGLE-SWITCH-ON-OFF"
-                  id=""
                   onClick={musicToggle}
                   onKeyDown={musicToggle}
                   checked
