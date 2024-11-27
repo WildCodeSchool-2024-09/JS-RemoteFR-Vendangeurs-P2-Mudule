@@ -3,9 +3,7 @@ import type { ReactNode } from "react";
 
 interface Music {
   music: boolean;
-  isChecked: boolean;
   setMusic: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
   musicRef: React.RefObject<HTMLAudioElement>;
   musicOn: () => void;
   musicOff: () => void;
@@ -14,8 +12,6 @@ interface Music {
 
 const musicContext = createContext<Music>({
   music: true,
-  isChecked: false,
-  setIsChecked: () => {},
   setMusic: () => {},
   musicRef: { current: null },
   musicOn: () => {},
@@ -25,7 +21,6 @@ const musicContext = createContext<Music>({
 
 function MusicProvider({ children }: { children: ReactNode }) {
   const [music, setMusic] = useState<boolean>(true);
-  const [isChecked, setIsChecked] = useState<boolean>(false);
   const musicRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -66,11 +61,9 @@ function MusicProvider({ children }: { children: ReactNode }) {
     if (!music && musicRef.current) {
       musicRef.current.play();
       setMusic(true);
-      setIsChecked(false);
     } else if (music && musicRef.current) {
       musicRef.current?.pause();
       setMusic(false);
-      setIsChecked(true);
     }
   };
 
@@ -83,8 +76,6 @@ function MusicProvider({ children }: { children: ReactNode }) {
         musicOn,
         musicOff,
         musicToggle,
-        isChecked,
-        setIsChecked,
       }}
     >
       {children}

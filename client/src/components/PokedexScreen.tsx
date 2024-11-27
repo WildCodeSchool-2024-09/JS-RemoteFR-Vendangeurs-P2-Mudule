@@ -59,10 +59,16 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
   error,
   types,
 }) => {
-  const { musicToggle, isChecked, setIsChecked } = useMusic();
+  const { musicToggle } = useMusic();
   const [isShiny, setIsShiny] = useState(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const musicContext = useMusic();
   const music = musicContext?.music;
+
+  const handleCheckboxChange = () => {
+    setIsChecked((prevChecked) => !prevChecked);
+    musicToggle();
+  };
 
   const toggleShiny = () => {
     setIsShiny(!isShiny);
@@ -74,37 +80,25 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
         <div className={styles.pokedexScreen}>
           <hr className={styles.diodeRed1} />
           <div className={styles.pokemonName} />
+          <input
+            type="checkbox"
+            name="TOGGLE-SWITCH-ON-OFF"
+            id="toggle-switch"
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+          />
           {music ? (
-            <>
-              <input
-                type="checkbox"
-                name="TOGGLE-SWITCH-ON-OFF"
-                onClick={musicToggle}
-                onKeyDown={musicToggle}
-                defaultChecked={isChecked}
-              />
-              <span
-                className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
-              >
-                volume_up
-              </span>
-            </>
+            <span
+              className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
+            >
+              volume_up
+            </span>
           ) : (
-            <>
-              <input
-                type="checkbox"
-                name="TOGGLE-SWITCH-ON-OFF"
-                onClick={musicToggle}
-                onKeyDown={musicToggle}
-                checked={isChecked}
-                onChange={(e) => setIsChecked(e.target.checked)}
-              />
-              <span
-                className={`${"material-symbols-outlined"} ${styles.volumeOff}`}
-              >
-                volume_off
-              </span>
-            </>
+            <span
+              className={`${"material-symbols-outlined"} ${styles.volumeOff}`}
+            >
+              volume_off
+            </span>
           )}
           <figure className={styles.screen}>
             <p className={styles.errorMessage}>
@@ -152,37 +146,25 @@ const PokedexScreen: React.FC<PokedexScreenProps> = ({
         <div className={styles.pokedexScreenBorder}>
           <div className={styles.pokedexScreen}>
             <hr className={styles.diodeRed1} />
+            <input
+              type="checkbox"
+              name="TOGGLE-SWITCH-ON-OFF"
+              id="toggle-switch"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
             {music ? (
-              <>
-                <input
-                  type="checkbox"
-                  name="TOGGLE-SWITCH-ON-OFF"
-                  onClick={musicToggle}
-                  onKeyDown={musicToggle}
-                  defaultChecked={isChecked}
-                />
-                <span
-                  className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
-                >
-                  volume_up
-                </span>
-              </>
+              <span
+                className={`${"material-symbols-outlined"} ${styles.volumeOn}`}
+              >
+                volume_up
+              </span>
             ) : (
-              <>
-                <input
-                  type="checkbox"
-                  name="TOGGLE-SWITCH-ON-OFF"
-                  onClick={musicToggle}
-                  onKeyDown={musicToggle}
-                  checked={isChecked}
-                  onChange={(e) => setIsChecked(e.target.checked)}
-                />
-                <span
-                  className={`${"material-symbols-outlined"} ${styles.volumeOff}`}
-                >
-                  volume_off
-                </span>
-              </>
+              <span
+                className={`${"material-symbols-outlined"} ${styles.volumeOff}`}
+              >
+                volume_off
+              </span>
             )}
             <div className={styles.pokemonName}>
               <h2>{pokemon?.name.fr}</h2>
